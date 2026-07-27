@@ -2,13 +2,23 @@
 
 [中文](./README.md) | English
 
-Animated cat cursor theme by HappyCadogt for macOS. Requires [Mousecape](https://github.com/alexzielenski/Mousecape/releases).
+Animated cat cursor theme by HappyCadogt for macOS. Requires a cursor manager (**[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** recommended).
+
+## Apple Silicon Notice
+
+Legacy [Mousecape](https://github.com/alexzielenski/Mousecape) no longer works reliably on **Apple Silicon** and recent macOS versions.
+
+| Tool | Apple Silicon | Notes |
+| --- | --- | --- |
+| **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** | Yes | **Recommended**, universal binary, imports `.cape` |
+| **[Trace](https://github.com/User1334/Trace/releases)** | Yes | Alternative, supports `.cape` |
+| Legacy Mousecape | No | Avoid on Apple Silicon |
 
 ## Download
 
 Get the latest installer from **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)**, then double-click **Install Cat Cursor.command**.
 
-Install [Mousecape](https://github.com/alexzielenski/Mousecape/releases) first.
+Install **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** first.
 
 ## Preview
 
@@ -48,7 +58,7 @@ Install [Mousecape](https://github.com/alexzielenski/Mousecape/releases) first.
 
 | Platform | Notes |
 | --- | --- |
-| **macOS** | Installer in this repo; requires [Mousecape](https://github.com/alexzielenski/Mousecape/releases) |
+| **macOS** | Installer in this repo; requires [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases) or Trace |
 | **Windows** | Download the original from [Bilibili @HappyCadogt](https://space.bilibili.com/406949928) |
 
 ---
@@ -57,10 +67,10 @@ Install [Mousecape](https://github.com/alexzielenski/Mousecape/releases) first.
 
 ### Option 1: Release package (recommended)
 
-1. Install [Mousecape](https://github.com/alexzielenski/Mousecape/releases)
+1. Install **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**
 2. Download `Cat-Cursor-macOS.zip` or `.dmg` from [Releases](https://github.com/Amory0709/cat-cursors/releases/latest)
 3. Double-click **Install Cat Cursor.command**
-4. On first use, choose **Install Helper Tool** in the Mousecape menu
+4. Enable **Launch at Login** in Mousecape Settings > General
 
 ### Option 2: Clone and install
 
@@ -79,7 +89,7 @@ See **[mac/README.md](./mac/README.md)** for details.
 
 - **Designer [HappyCadogt](https://space.bilibili.com/406949928)** ([Bilibili @406949928](https://space.bilibili.com/406949928))
 - **Amory0709**: macOS port and maintenance
-- **[Mousecape](https://github.com/alexzielenski/Mousecape)**: cursor management for macOS
+- **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI)**: recommended cursor manager for Apple Silicon
 
 ## Links
 

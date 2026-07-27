@@ -2,13 +2,24 @@
 
 中文 | [English](./README_en-US.md)
 
-HappyCadogt 设计的猫咪动态光标 macOS 版。需配合 [Mousecape](https://github.com/alexzielenski/Mousecape/releases) 使用。
+HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具使用（**推荐 [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**）。
+
+## Apple Silicon 用户必读
+
+旧版 [Mousecape](https://github.com/alexzielenski/Mousecape) 在 **Apple Silicon** 和新版 macOS 上已无法稳定工作。
+
+| 工具 | Apple Silicon | 说明 |
+| --- | --- | --- |
+| **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** | 支持 | **推荐**，通用二进制，直接导入 `.cape` |
+| **[Trace](https://github.com/User1334/Trace/releases)** | 支持 | 备选，支持 `.cape` |
+| **[MaCursor](https://github.com/writronic/MaCursor/releases)** | 支持 | 使用 `.cursor` 格式，需手动处理 |
+| 旧版 Mousecape | 不推荐 | Intel 老系统可用，Apple Silicon 请避免 |
 
 ## 下载安装
 
 前往 **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)** 下载最新安装包，解压后双击 **Install Cat Cursor.command** 即可。
 
-前置：先安装 [Mousecape](https://github.com/alexzielenski/Mousecape/releases)。
+前置：先安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**。
 
 ## 光标预览
 
@@ -49,7 +60,7 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合 [Mousecape](https:
 
 | 平台 | 说明 |
 | --- | --- |
-| **macOS** | 本仓库提供安装包，需 [Mousecape](https://github.com/alexzielenski/Mousecape/releases) |
+| **macOS** | 本仓库提供安装包，需 [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases) 或 Trace |
 | **Windows** | 请从 [B 站 @HappyCadogt](https://space.bilibili.com/406949928) 下载原版 |
 
 ---
@@ -58,10 +69,10 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合 [Mousecape](https:
 
 ### 方式一：Release 安装包（推荐）
 
-1. 安装 [Mousecape](https://github.com/alexzielenski/Mousecape/releases)
+1. 安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**（Apple Silicon 推荐）
 2. 从 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 下载 `Cat-Cursor-macOS.zip` 或 `.dmg`
 3. 解压 / 挂载后双击 **Install Cat Cursor.command**
-4. 首次使用请在 Mousecape 菜单执行 **Install Helper Tool**
+4. 在 Mousecape **设置 > 通用** 开启 **开机自动应用**
 
 ### 方式二：克隆仓库安装
 
@@ -74,7 +85,7 @@ chmod +x install.sh
 
 ### 方式三：手动导入
 
-双击 [`mac/dist/Cat-Cursor.cape`](./mac/dist/Cat-Cursor.cape)，在 Mousecape 中点击 **Apply**。
+双击 [`mac/dist/Cat-Cursor.cape`](./mac/dist/Cat-Cursor.cape)，在 Mousecape-swiftUI 中点击 **Apply**。
 
 完整说明见 **[mac/README.md](./mac/README.md)**。
 
@@ -84,7 +95,7 @@ chmod +x install.sh
 
 - **设计者 [HappyCadogt](https://space.bilibili.com/406949928)**（[哔哩哔哩 @406949928](https://space.bilibili.com/406949928)）：全部光标的美术设计与动画
 - **Amory0709**：macOS 移植与本仓库维护
-- **[Mousecape](https://github.com/alexzielenski/Mousecape)**：macOS 光标管理工具
+- **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI)**：Apple Silicon 推荐的光标管理工具
 
 ## 相关链接
 

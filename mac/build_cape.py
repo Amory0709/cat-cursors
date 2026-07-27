@@ -81,10 +81,34 @@ def parse_conf(conf_path: Path) -> list[tuple[int, int, int, Path, int]]:
     return frames
 
 
+def downsample_frames(
+    frames: list[tuple[int, int, int, Path, int]],
+    max_frames: int,
+) -> list[tuple[int, int, int, Path, int]]:
+    if len(frames) <= max_frames:
+        return frames
+
+    total_duration = sum(frame[4] for frame in frames)
+    selected: list[tuple[int, int, int, Path, int]] = []
+
+    for index in range(max_frames):
+        source_index = min(
+            int(index * len(frames) / max_frames),
+            len(frames) - 1,
+        )
+        frame = frames[source_index]
+        delay = max(1, int(total_duration / max_frames))
+        selected.append((frame[0], frame[1], frame[2], frame[3], delay))
+
+    return selected
+
+
 def load_scaled_frames(
     frames: list[tuple[int, int, int, Path, int]],
     target_size: int,
+    max_frames: int,
 ) -> tuple[list[Image.Image], int, int, float]:
+    frames = downsample_frames(frames, max_frames)
     orig_size = frames[0][0]
     scale = target_size / orig_size
     xhot = int(round(frames[0][1] * scale))
@@ -113,13 +137,21 @@ def stack_frames(images: list[Image.Image]) -> bytes:
     return buffer.getvalue()
 
 
-def build_cursor_entry(source_name: str, target_size: int) -> dict[str, object]:
+def build_cursor_entry(
+    source_name: str,
+    target_size: int,
+    max_frames: int,
+) -> dict[str, object]:
     conf_path = SOURCES / source_name / f"{source_name}.conf"
     if not conf_path.is_file():
         raise FileNotFoundError(f"Missing source config: {conf_path}")
 
     frames = parse_conf(conf_path)
-    images, xhot, yhot, frame_duration = load_scaled_frames(frames, target_size)
+    images, xhot, yhot, frame_duration = load_scaled_frames(
+        frames,
+        target_size,
+        max_frames,
+    )
     png_bytes = stack_frames(images)
 
     return {
@@ -133,12 +165,16 @@ def build_cursor_entry(source_name: str, target_size: int) -> dict[str, object]:
     }
 
 
-def build_cape(target_size: int, output_path: Path) -> None:
+def build_cape(target_size: int, max_frames: int, output_path: Path) -> None:
     source_entries: dict[str, dict[str, object]] = {}
 
     for source_name in dict.fromkeys(CURSOR_MAPPINGS.values()):
         print(f"Building source cursor: {source_name}")
-        source_entries[source_name] = build_cursor_entry(source_name, target_size)
+        source_entries[source_name] = build_cursor_entry(
+            source_name,
+            target_size,
+            max_frames,
+        )
 
     cursors = {
         mac_id: source_entries[source_name]
@@ -166,8 +202,14 @@ def main() -> int:
     parser.add_argument(
         "--size",
         type=int,
-        default=48,
-        help="Cursor size in macOS points (default: 48)",
+        default=64,
+        help="Cursor size in macOS points (default: 64, recommended for modern managers)",
+    )
+    parser.add_argument(
+        "--max-frames",
+        type=int,
+        default=24,
+        help="Maximum animation frames per cursor (default: 24 for Apple Silicon tools)",
     )
     parser.add_argument(
         "--output",
@@ -181,7 +223,7 @@ def main() -> int:
         print(f"Missing sources directory: {SOURCES}", file=sys.stderr)
         return 1
 
-    build_cape(args.size, args.output)
+    build_cape(args.size, args.max_frames, args.output)
     return 0
 
 
