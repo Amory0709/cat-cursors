@@ -17,9 +17,13 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具�
 
 ## 下载安装
 
-前往 **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)** 下载最新安装包，解压后双击 **Install Cat Cursor.command** 即可。
+前往 **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)** 下载最新安装包。
 
 前置：先安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**。
+
+**最简单（推荐）：** 解压后双击 **`Cat-Cursor.cape`** → 在 Mousecape 中点 **Apply**。
+
+若要用安装脚本，见下方 [Gatekeeper 提示](#gatekeeper-无法打开安装脚本)。
 
 ## 光标预览
 
@@ -67,14 +71,51 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具�
 
 ## macOS 安装
 
-### 方式一：Release 安装包（推荐）
+### 方式一：直接导入 `.cape`（推荐，无 Gatekeeper 脚本拦截）
 
-1. 安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**（Apple Silicon 推荐）
-2. 从 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 下载 `Cat-Cursor-macOS.zip` 或 `.dmg`
-3. 解压 / 挂载后双击 **Install Cat Cursor.command**
-4. 在 Mousecape **设置 > 通用** 开启 **开机自动应用**
+1. 安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**
+2. 从 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 下载并解压
+3. **双击 `Cat-Cursor.cape`**
+4. 在 Mousecape 中选择「猫标 Cat Cursor」，点击 **Apply**
+5. 在 **设置 > 通用** 开启 **开机自动应用**
 
-### 方式二：克隆仓库安装
+### 方式二：Release 安装脚本
+
+1. 完成方式一的前 2 步
+2. 双击 **Install Cat Cursor.command**（若被拦截见下方 Gatekeeper 说明）
+
+### Gatekeeper：无法打开安装脚本
+
+从 GitHub 下载的 `.command` **未 Apple 签名**，macOS 可能提示「无法验证是否包含恶意软件」。**不是病毒**，是未签名脚本的正常拦截。
+
+任选一种方式继续：
+
+**A. 跳过脚本（最简单）**
+
+直接双击 **`Cat-Cursor.cape`** 导入，不必运行 `.command`。
+
+**B. 右键打开**
+
+1. 在 `Install Cat Cursor.command` 上 **Control + 点击**（或右键）
+2. 选 **打开**
+3. 弹窗再点 **打开**
+
+**C. 系统设置放行**
+
+1. 先双击脚本触发拦截
+2. 打开 **系统设置 > 隐私与安全性**
+3. 底部点 **仍要打开**
+
+**D. 终端移除隔离属性**
+
+```bash
+cd ~/Downloads/Cat-Cursor-macOS   # 改成你的解压路径
+xattr -dr com.apple.quarantine .
+chmod +x "Install Cat Cursor.command"
+./Install Cat Cursor.command
+```
+
+### 方式三：克隆仓库安装
 
 ```bash
 git clone https://github.com/Amory0709/cat-cursors.git
@@ -83,7 +124,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-### 方式三：手动导入
+### 方式四：手动导入（仓库内文件）
 
 双击 [`mac/dist/Cat-Cursor.cape`](./mac/dist/Cat-Cursor.cape)，在 Mousecape-swiftUI 中点击 **Apply**。
 

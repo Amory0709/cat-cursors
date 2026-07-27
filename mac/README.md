@@ -43,13 +43,24 @@
 
 ## 安装方式
 
-### 方式一：Release 安装包（推荐）
+### 方式一：直接导入 `.cape`（推荐）
 
 1. 安装 [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)
-2. 从 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 下载 zip / dmg
-3. 双击 **Install Cat Cursor.command**
+2. 双击 `Cat-Cursor.cape`（Release 包或 [`dist/Cat-Cursor.cape`](./dist/Cat-Cursor.cape)）
+3. 点击 **Apply**，并开启 **开机自动应用**
 
-### 方式二：安装脚本
+### 方式二：Release 安装脚本
+
+1. 下载 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 并解压
+2. 双击 **Install Cat Cursor.command**
+
+若提示「无法验证恶意软件」：**右键 > 打开**，或改用方式一（不必运行脚本）。
+
+```bash
+xattr -dr com.apple.quarantine ~/Downloads/Cat-Cursor-macOS
+```
+
+### 方式三：克隆仓库安装
 
 ```bash
 cd mac
@@ -59,13 +70,13 @@ chmod +x install.sh
 
 安装脚本会自动检测 Mousecape / Trace，并在 Apple Silicon 上引导安装 Mousecape-swiftUI。
 
-### 方式三：手动导入
+### 方式四：手动导入（同方式一）
 
 1. 双击 [`dist/Cat-Cursor.cape`](./dist/Cat-Cursor.cape)
 2. 在 Mousecape-swiftUI 中选择「猫标 Cat Cursor」
 3. 点击 **Apply**
 
-### 方式四：自行构建 DMG
+### 方式五：自行构建 DMG
 
 ```bash
 cd mac/package

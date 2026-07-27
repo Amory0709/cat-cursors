@@ -1,23 +1,31 @@
 猫标 Cat Cursor - macOS 安装包
 ================================
 
-## 重要：Apple Silicon 用户请读
+## 推荐安装（最简单）
 
-旧版 [Mousecape](https://github.com/alexzielenski/Mousecape) 在 Apple Silicon 和新版 macOS 上已无法稳定使用。
+1. 安装 Mousecape-swiftUI
+   https://github.com/sdmj76-team/Mousecape-swiftUI/releases
 
-请改用 **Mousecape-swiftUI**（通用二进制，支持 Apple Silicon）：
-https://github.com/sdmj76-team/Mousecape-swiftUI/releases
+2. 双击本文件夹里的 Cat-Cursor.cape
 
-也可选用支持 `.cape` 的 [Trace](https://github.com/User1334/Trace/releases)。
+3. 在 Mousecape 中点击 Apply
 
-## 安装步骤
+4. 设置 > 通用 > 开启「开机自动应用」
 
-1. 安装 Mousecape-swiftUI（推荐）或 Trace
-2. 双击「Install Cat Cursor.command」
-3. 按弹窗提示完成
-4. 在 Mousecape 设置 > 通用 中开启「开机自动应用」
+## 关于「无法验证恶意软件」提示
+
+Install Cat Cursor.command 是未签名的安装脚本。
+从 GitHub 下载时 macOS 可能拦截，这是正常现象，不是病毒。
+
+你可以：
+- 直接双击 Cat-Cursor.cape（推荐，不需要运行 .command）
+- 或在 .command 上 右键 > 打开 > 仍要打开
+- 或 系统设置 > 隐私与安全性 > 仍要打开
+
+## Apple Silicon
+
+请使用 Mousecape-swiftUI，不要用旧版 Mousecape。
 
 ## 设计者
 
-原创设计：B 站 UP 主 HappyCadogt
-https://space.bilibili.com/406949928
+HappyCadogt - https://space.bilibili.com/406949928
