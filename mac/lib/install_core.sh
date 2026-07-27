@@ -84,21 +84,19 @@ apply_with_mousecape() {
   mkdir -p "$(dirname "$INSTALLED_CAPE")"
   cp -f "$cape_source" "$INSTALLED_CAPE"
 
+  open -a Mousecape
+  sleep 1
   open -a Mousecape "$INSTALLED_CAPE"
   sleep 2
 
   if [[ -x "$mousecloak" ]]; then
-    "$mousecloak" --apply "$INSTALLED_CAPE" >/dev/null 2>&1 || return 1
-  else
-    alert "需要手动确认" "主题已导入 Mousecape。请在应用中选择「猫标 Cat Cursor」并点击 Apply。"
-    return 0
+    if "$mousecloak" --apply "$INSTALLED_CAPE" >/dev/null 2>&1; then
+      alert "安装完成" "猫标光标已应用。若光标未变化，请在已打开的 Mousecape 窗口左侧选中「猫标 Cat Cursor」并点击 Apply。然后在 设置 > 通用 开启「开机自动应用」。"
+      return 0
+    fi
   fi
 
-  if is_apple_silicon; then
-    alert "安装完成" "猫标光标已应用。请在 Mousecape 设置 > 通用 中开启「开机自动应用」，以便重启后自动恢复。"
-  else
-    alert "安装完成" "猫标光标已应用。请在 Mousecape 设置中开启开机自动应用 / Helper，以便重启后自动恢复。"
-  fi
+  alert "还需一步" "Mousecape 应已打开并已导入主题。请在左侧列表选中「猫标 Cat Cursor」，点击 Apply 应用。导入不等于已应用。"
 }
 
 apply_with_open_only() {

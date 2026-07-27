@@ -14,6 +14,7 @@ New-Item -ItemType Directory -Path (Join-Path $Stage "lib") -Force | Out-Null
 Copy-Item (Join-Path $Root "mac\dist\Cat-Cursor.cape") (Join-Path $Stage "Cat-Cursor.cape") -ErrorAction Stop
 Copy-Item (Join-Path $Root "mac\package\Install Cat Cursor.command") $Stage
 Copy-Item (Join-Path $Root "mac\lib\install_core.sh") (Join-Path $Stage "lib\install_core.sh")
+Copy-Item (Join-Path $Root "mac\package\请先阅读.txt") $Stage
 Copy-Item (Join-Path $Root "mac\package\README.txt") $Stage
 
 New-Item -ItemType Directory -Path $Dist -Force | Out-Null

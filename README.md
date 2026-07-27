@@ -21,9 +21,9 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具�
 
 前置：先安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**。
 
-**最简单（推荐）：** 解压后双击 **`Cat-Cursor.cape`** → 在 Mousecape 中点 **Apply**。
+**最简单：** 解压后先读 **`请先阅读.txt`**，再按步骤在 Mousecape-swiftUI 里 **导入 + 点 Apply**。
 
-若要用安装脚本，见下方 [Gatekeeper 提示](#gatekeeper-无法打开安装脚本)。
+> 双击 `.cape` 只会**导入**主题，不会自动换光标；且若未安装 Mousecape-swiftUI，双击可能完全没反应。
 
 ## 光标预览
 
@@ -71,13 +71,21 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具�
 
 ## macOS 安装
 
-### 方式一：直接导入 `.cape`（推荐，无 Gatekeeper 脚本拦截）
+### 方式一：Mousecape 手动导入（推荐）
 
-1. 安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**
-2. 从 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 下载并解压
-3. **双击 `Cat-Cursor.cape`**
-4. 在 Mousecape 中选择「猫标 Cat Cursor」，点击 **Apply**
-5. 在 **设置 > 通用** 开启 **开机自动应用**
+1. 安装并**先打开** [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)（应用程序里的 **Mousecape**）
+2. 把 **`Cat-Cursor.cape`** 拖进 Mousecape 窗口（或菜单 **Import / 导入**）
+3. 左侧列表选中 **「猫标 Cat Cursor」**
+4. 点击 **Apply / 应用**（没点这步光标不会变）
+5. **设置 > 通用 > 开机自动应用**
+
+双击 `.cape` 若没反应：说明 Mousecape 未安装，或未关联 `.cape`。请用拖放导入。
+
+```bash
+# 或终端（改路径）
+open -a Mousecape
+open -a Mousecape ~/Downloads/Cat-Cursor-macOS/Cat-Cursor.cape
+```
 
 ### 方式二：Release 安装脚本
 

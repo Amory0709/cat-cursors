@@ -1,0 +1,51 @@
+猫标 Cat Cursor - 请先读这个
+==============================
+
+双击 .cape 后「什么也没发生」？按下面做。
+
+## 第 0 步：必须已安装 Mousecape-swiftUI
+
+没装这个 App，.cape 文件无法打开。
+
+下载：https://github.com/sdmj76-team/Mousecape-swiftUI/releases
+
+安装后「应用程序」里应有 Mousecape.app
+
+## 第 1 步：手动打开 Mousecape
+
+1. 打开「启动台」或「应用程序」
+2. 点击 Mousecape（不是 MaCursor，不是旧版未签名 Mousecape）
+
+## 第 2 步：导入主题
+
+任选一种：
+
+A. 把 Cat-Cursor.cape 拖进 Mousecape 窗口
+
+B. Mousecape 菜单 / 工具栏点「导入 Import」→ 选 Cat-Cursor.cape
+
+C. 终端执行（把路径改成你的解压位置）：
+
+   open -a Mousecape ~/Downloads/Cat-Cursor-macOS/Cat-Cursor.cape
+
+## 第 3 步：应用主题（很多人漏这步）
+
+导入后光标不会自动变！
+
+1. 在 Mousecape 左侧列表找「猫标 Cat Cursor」
+2. 点选它
+3. 点 Apply / 应用 按钮
+
+看到光标变成猫，才算成功。
+
+## 第 4 步：开机保持
+
+Mousecape → 设置 → 通用 → 开启「开机自动应用」
+
+## 仍不行？
+
+1. 系统设置 → 辅助功能 → 显示 → 指针 → 点「重设颜色」
+2. 回 Mousecape 再点一次 Apply
+3. 确认不是只装了 MaCursor（MaCursor 不能直接打开 .cape）
+
+设计者：HappyCadogt https://space.bilibili.com/406949928
