@@ -7,28 +7,32 @@
 ## About
 
 - **Original Author**: [Bilibili @406949928 (HappyCadogt)](https://space.bilibili.com/406949928)
-- **Ported by**: [GitHub @Tseshongfeeshur (Ryan)](https://github.com/Tseshongfeeshur)
+- **Linux port**: [GitHub @Tseshongfeeshur (Ryan)](https://github.com/Tseshongfeeshur)
+- **macOS port**: `mac/` directory in this repository
 
-As of the project’s release date (2026-02-10), the original author has only provided versions for Windows. Since no [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) version was available, this theme has been ported into an [XDG cursor theme package](https://specifications.freedesktop.org/icon-theme/latest/) that works with most [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) desktop environments. **Great thanks to the original author — without his work, this port would not exist, and we wouldn’t be able to enjoy such a beautiful cursor theme.**
+As of the project release date (2026-02-10), the original author only provided a Windows version. Ryan ported it to an [XDG cursor theme package](https://specifications.freedesktop.org/icon-theme/latest/) for GNU/Linux. This repository also includes a macOS port based on [Mousecape](https://github.com/alexzielenski/Mousecape).
+
+**Many thanks to HappyCadogt — without their work, none of these ports would exist.**
 
 ## Project Content
 
-- designed and created by **[HappyCadogt](https://space.bilibili.com/406949928)**
-- **Wholy** animated cursors
+- Designed and created by **[HappyCadogt](https://space.bilibili.com/406949928)**
+- **Fully** animated cursors
 - Supports **24 / 32 / 48 / 64 / 96 / 128 / 192 / 256** pixel resolutions
 
-## Supported Targets
+## Supported Platforms
 
-- All [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) desktop environments that support [XDG cursor themes](https://specifications.freedesktop.org/icon-theme/latest/)
-  - Fully tested and works well under [KDE Plasma](https://kde.org/plasma-desktop/) and [GNOME](https://www.gnome.org/)
+| Platform | Status | Notes |
+| --- | --- | --- |
+| Windows | Original | Download from [Bilibili @HappyCadogt](https://space.bilibili.com/406949928) |
+| GNU/Linux | Ported | XDG theme; tested on KDE Plasma and GNOME |
+| macOS | Ported | Requires [Mousecape](https://github.com/alexzielenski/Mousecape/releases); see [`mac/README.md`](./mac/README.md) |
 
-## Installation
+---
 
-<!-- We recommend installing the pre-built package, so build-from-source installation steps are not provided here. Only the installation steps using the pre-built package are included.
+## Linux Installation
 
-If you prefer to build and install it yourself, please use the build script located in the `sources` directory. That script can directly generate the theme folder. Arch Linux users can install the AUR package `cat-cursors-git`. -->
-
-### Arch Linux
+### Arch Linux (recommended)
 
 #### Install with an AUR helper
 
@@ -36,7 +40,8 @@ If you prefer to build and install it yourself, please use the build script loca
 paru -S cat-cursors-git
 ```
 
-**Or**, using any other AUR helper you prefer:
+Or with another AUR helper:
+
 ```zsh
 yay -S cat-cursors-git
 ```
@@ -50,42 +55,45 @@ cd cat-cursors-git
 makepkg -si
 ```
 
-**Or**, install manually **(not recommended, as `pacman` will not track the package)**.
+### Other distributions (manual installation)
 
-## None of Other Distributions (Manual Installation)
+1. Install `git`
 
-### Install `git`
+   Debian / Ubuntu:
+   ```zsh
+   sudo apt update
+   sudo apt install git
+   ```
 
-- Debian
-  ```zsh
-  sudo apt update
-  sudo apt install git
-  ```
+   Fedora:
+   ```zsh
+   sudo dnf install git
+   ```
 
-- Fedora
-  ```zsh
-  sudo dnf install git
-  ```
+   Arch Linux:
+   ```zsh
+   sudo pacman -S git
+   ```
 
-- Arch Linux
-  ```zsh
-  sudo pacman -S git
-  ```
+2. Clone and install for the current user (recommended):
 
-2. Install for the **current user**:
    ```zsh
    git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
    mkdir -p ~/.local/share/icons/
    mv ./hei_cursors ~/.local/share/icons/
    ```
-   
-   **Or**, install for **all users** **(not recommended)**:
+
+   Or install system-wide (not recommended):
+
    ```zsh
    git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
    sudo mkdir -p /usr/share/icons/
    sudo mv ./hei_cursors /usr/share/icons/
    ```
-## Applying the Cursor Theme
+
+---
+
+## Applying the Theme on Linux
 
 ### KDE Plasma
 
@@ -94,42 +102,53 @@ makepkg -si
    systemsettings kcm_cursortheme
    ```
 
-2. Select the "**A Cat**" cursor theme and click "**Apply**"
-3. Choose a cursor size that feels comfortable
+2. Select the "**A Cat**" theme and click "**Apply**"
+3. Choose a comfortable cursor size
 
 ### GNOME
 
 1. Install `gnome-tweaks`
-   - Debian
-     ```zsh
-     sudo apt update
-     sudo apt install gnome-tweaks
-     ```
-
-   - Fedora
-     ```zsh
-     sudo dnf install gnome-tweaks
-     ```
-
-   - Arch Linux
-     ```zsh
-     sudo pacman -S gnome-tweaks
-     ```
-
 2. Open **Tweaks → Appearance → Cursor**
-3. Select the "**Cat_cursor**" cursor theme from the dropdown list
-4. Optionally adjust the cursor size via command line:
+3. Select "**Cat_cursor**" from the dropdown
+4. Set cursor size, for example:
    ```zsh
-   gsettings set org.gnome.desktop.interface cursor-size $px
-   # Replace $px with your desired size, e.g. 48
+   gsettings set org.gnome.desktop.interface cursor-size 48
    ```
 
-### Other Desktop Environments / Window Managers
+### Other desktop environments
 
-Due to the wide variety of desktop environments and window managers, please refer to the corresponding official documentation on how to apply XDG-compatible cursor themes.
+Refer to your environment's documentation for applying XDG cursor themes.
+
+---
+
+## macOS Installation
+
+macOS does **not** support native system-wide cursor themes like Windows or Linux. You need [Mousecape](https://github.com/alexzielenski/Mousecape/releases).
+
+### Quick start
+
+1. Install Mousecape
+2. Run the installer script:
+
+   ```bash
+   cd mac
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+3. On first use, choose **Install Helper Tool** in the Mousecape menu so cursors persist after login
+
+See **[mac/README.md](./mac/README.md)** for DMG packaging, manual import, and build instructions.
+
+---
 
 ## Acknowledgements
 
-- **Original author** [HappyCadogt](https://space.bilibili.com/406949928).
-  Without his contribution, this project would not exist.
-- `xorg-xcursorgen`, for making multi-resolution cursor generation convenient and reliable
+- **[HappyCadogt](https://space.bilibili.com/406949928)** — original design
+- **Ryan (Tseshongfeeshur)** — Linux port
+- **`xorg-xcursorgen`** — multi-resolution cursor generation
+
+## Links
+
+- Blog post (Linux): https://blog.ryanyuan.top/2026/02/10/cat-cursors/
+- Original author on Bilibili: https://space.bilibili.com/406949928

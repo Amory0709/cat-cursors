@@ -7,9 +7,12 @@
 ## 关于项目
 
 - **原作者**：[哔哩哔哩 @406949928（HappyCadogt）](https://space.bilibili.com/406949928)
-- 移植者：[GitHub @Tseshongfeeshur（Ryan）](https://github.com/Tseshongfeeshur)
+- **Linux 移植**：[GitHub @Tseshongfeeshur（Ryan）](https://github.com/Tseshongfeeshur)
+- **macOS 移植**：本仓库 `mac/` 目录
 
-由于截至项目发布（2026-02-10），原作者仅为 Windows 平台提供适配，尚未提供 [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 版本，遂将其移植为适用于大多数桌面环境的 [XDG 主题包](https://specifications.freedesktop.org/icon-theme/latest/)，以供 [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 用户使用。**特别感谢原作者的付出和努力，否则该移植项目不可能出现，我们也不可能用到如此精美的鼠标指针。**
+截至项目发布（2026-02-10），原作者仅为 Windows 提供适配。Ryan 将其移植为 GNU/Linux 可用的 [XDG 光标主题包](https://specifications.freedesktop.org/icon-theme/latest/)；本仓库另含 macOS 版（基于 Mousecape）。
+
+**特别感谢原作者 HappyCadogt 的付出，没有 TA 的设计与制作，就不可能有这些移植版本。**
 
 ## 项目内容
 
@@ -19,16 +22,17 @@
 
 ## 适用平台
 
-- [GNU](https://www.gnu.org/)/[Linux](https://kernel.org/) 平台所有支持 [XDG 主题包](https://specifications.freedesktop.org/icon-theme/latest/)的桌面环境
-  - 在 [KDE Plasma](https://kde.org/plasma-desktop/)、[GNOME](https://www.gnome.org/) 通过测试，表现良好
+| 平台 | 状态 | 说明 |
+| --- | --- | --- |
+| Windows | 原版 | 请从 [B 站 @HappyCadogt](https://space.bilibili.com/406949928) 获取 |
+| GNU/Linux | 已移植 | XDG 主题，KDE / GNOME 测试通过 |
+| macOS | 已移植 | 需 [Mousecape](https://github.com/alexzielenski/Mousecape/releases)，见 [`mac/README.md`](./mac/README.md) |
 
-## 安装方式
+---
 
-<!-- 推荐安装预构建包，因此暂不提供自行构建安装步骤，仅提供使用预构建包安装的步骤。
+## Linux 安装
 
-若希望自行构建安装，请使用 `sources` 目录内的构建脚本。该脚本可直接生成主题文件夹。Arch Linux 用户可以安装名为 `cat-cursors-git` 的 AUR 包。 -->
-
-### Arch Linux
+### Arch Linux（推荐）
 
 #### 使用 AUR 助手
 
@@ -36,7 +40,8 @@
 paru -S cat-cursors-git
 ```
 
-**或**选择其他您喜欢的 AUR 助手：
+或使用其他 AUR 助手：
+
 ```zsh
 yay -S cat-cursors-git
 ```
@@ -50,84 +55,124 @@ cd cat-cursors-git
 makepkg -si
 ```
 
-**或**参见下文手动安装 **（不建议，会导致 `pacman` 无法追踪该包）**。
-
-### 暂不支持其他发行版（手动安装）
+### 其他发行版（手动安装）
 
 1. 安装 `git`
-   - Debian
-     ```zsh
-     sudo apt update
-     sudo apt install git
-     ```
 
-   - Fedora
-     ```zsh
-     sudo dnf install git
-     ```
-   - Arch Linux
-     ```zsh
-     sudo pacman -S git
-     ```
+   Debian / Ubuntu：
+   ```zsh
+   sudo apt update
+   sudo apt install git
+   ```
 
-2. 为**当前用户**安装：
+   Fedora：
+   ```zsh
+   sudo dnf install git
+   ```
+
+   Arch Linux：
+   ```zsh
+   sudo pacman -S git
+   ```
+
+2. 克隆并安装到用户目录（推荐）：
+
    ```zsh
    git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
    mkdir -p ~/.local/share/icons/
    mv ./hei_cursors ~/.local/share/icons/
    ```
 
-   **或**为**所有用户**安装 **（不建议）**：
+   或安装到系统目录（不建议，`pacman` 等包管理器无法追踪）：
+
    ```zsh
    git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
    sudo mkdir -p /usr/share/icons/
    sudo mv ./hei_cursors /usr/share/icons/
    ```
 
-## 应用方式
+---
+
+## Linux 应用方式
 
 ### KDE Plasma
 
-1. 导航至**系统设置 → 外观和样式 → 颜色和主题 → 光标**，或：
+1. 打开 **系统设置 → 外观和样式 → 颜色和主题 → 光标**，或运行：
+
    ```zsh
    systemsettings kcm_cursortheme
    ```
 
-2. 单击“**猫标**”光标样式后单击窗口右下角“**应用**”
-3. 在窗口上方选择观感舒适的光标大小
+2. 选择「**猫标**」主题，点击「**应用**」
+3. 在窗口上方选择合适的光标大小
 
 ### GNOME
 
 1. 安装 `gnome-tweaks`
-   - Debian
-     ```zsh
-     sudo apt update
-     sudo apt install gnome-tweaks
-     ```
 
-   - Fedora
-     ```zsh
-     sudo dnf install gnome-tweaks
-     ```
-
-   - Arch Linux
-     ```zsh
-     sudo pacman -S gnome-tweaks
-     ```
-
-2. 导航至**优化 → 外观 → 光标**
-3. 单击下拉菜单，选择“**Cat_cursor**”光标样式
-4. 选择观感舒适的光标大小：
+   Debian / Ubuntu：
    ```zsh
-   gsettings set org.gnome.desktop.interface cursor-size $px
-   # 将“$px”改为您需要的像素值，如 48
+   sudo apt update
+   sudo apt install gnome-tweaks
    ```
 
-### 其他
+   Fedora：
+   ```zsh
+   sudo dnf install gnome-tweaks
+   ```
 
-由于桌面环境 / 窗口管理器种类繁多，请查看其他平台对应文档，恕不一一赘述。
+   Arch Linux：
+   ```zsh
+   sudo pacman -S gnome-tweaks
+   ```
+
+2. 打开 **优化 → 外观 → 光标**
+3. 在下拉菜单中选择「**Cat_cursor**」
+4. 设置光标大小（示例为 48 像素）：
+
+   ```zsh
+   gsettings set org.gnome.desktop.interface cursor-size 48
+   ```
+
+### 其他桌面环境
+
+请查阅对应桌面环境关于 XDG 光标主题的文档。
+
+---
+
+## macOS 安装
+
+macOS **不支持**像 Windows / Linux 那样原生更换系统光标，需借助 [Mousecape](https://github.com/alexzielenski/Mousecape/releases)。
+
+### 快速开始
+
+1. 安装 Mousecape
+2. 进入 `mac/` 目录，运行安装脚本：
+
+   ```bash
+   cd mac
+   chmod +x install.sh
+   ./install.sh
+   ```
+
+3. 首次使用请在 Mousecape 菜单执行 **Install Helper Tool**（登录后自动恢复光标）
+
+### 其他方式
+
+- 双击 `mac/dist/猫标-Cat-Cursor.cape` 手动导入
+- 在 macOS 上运行 `mac/package/build_dmg.sh` 生成 DMG 安装包
+
+完整说明、光标映射表与构建方法见 **[mac/README.md](./mac/README.md)**。
+
+---
 
 ## 鸣谢
 
-- **原作者** [**HappyCadogt**](https://space.bilibili.com/406949928) ，没有他的付出，就没有这个项目
-- `xorg-xcursorgen`，它为多分辨率图标的生成提供了很便捷的方式
+- **原作者 [HappyCadogt](https://space.bilibili.com/406949928)**：设计与制作
+- **Ryan（Tseshongfeeshur）**：Linux XDG 移植
+- **`xorg-xcursorgen`**：多分辨率光标生成工具
+
+## 相关链接
+
+- 博客介绍（Linux）：https://blog.ryanyuan.top/2026/02/10/cat-cursors/
+- 原作者 B 站：https://space.bilibili.com/406949928
