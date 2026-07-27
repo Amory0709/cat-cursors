@@ -1,91 +1,101 @@
-猫标 Cat Cursor - 请先读这个
-==============================
-
-双击 .cape 后「什么也没发生」？按下面做。
-
-## 第 0 步：必须已安装 Mousecape-swiftUI
-
-没装这个 App，.cape 文件无法打开。
-
-下载：https://github.com/sdmj76-team/Mousecape-swiftUI/releases
-
-安装后「应用程序」里应有 Mousecape.app
-
-## 第 1 步：手动打开 Mousecape
-
-1. 打开「启动台」或「应用程序」
-2. 点击 Mousecape（不是 MaCursor，不是旧版未签名 Mousecape）
-
-## 第 2 步：导入主题
-
-任选一种：
-
-A. 把 Cat-Cursor.cape 拖进 Mousecape 窗口
-
-B. Mousecape 菜单 / 工具栏点「导入 Import」→ 选 Cat-Cursor.cape
-
-C. 终端执行（把路径改成你的解压位置）：
-
-   open -a Mousecape ~/Downloads/Cat-Cursor-macOS/Cat-Cursor.cape
-
-## 第 3 步：应用主题（很多人漏这步）
-
-导入后光标不会自动变！
-
-1. 在 Mousecape 左侧列表找「猫标 Cat Cursor」
-2. 点选它
-3. 点 Apply / 应用 按钮
-
-看到光标变成猫，才算成功。
-
-## 第 4 步：开机保持
-
-Mousecape → 设置 → 通用 → 开启「开机自动应用」
-
-## 导入并点了 Apply 仍无效？（按顺序做）
-
-### A. 给 Mousecape 辅助功能权限（最常见）
-
-没这权限，导入成功也不会换光标。
-
-1. 系统设置 → 隐私与安全性 → 辅助功能
-2. 点左下角锁，输入密码解锁
-3. 找到 Mousecape，开关打开
-4. 若没有 Mousecape：点 + → 选「应用程序」里的 Mousecape.app
-5. 完全退出 Mousecape（Cmd+Q），再打开 → 选中主题 → 再点 Apply
-
-### B. 重设系统指针颜色
-
-自定义指针颜色会阻止 Mousecape 全局生效（常见：只在 Dock/桌面有效，进 App 又变回默认）。
-
-1. 系统设置 → 辅助功能 → 显示 → 指针
-2. 点「重设颜色 / Reset Color」
-3. 回 Mousecape 再点 Apply
-
-### C. 确认是 Mousecape-swiftUI
-
-应用程序里必须是新版 Mousecape-swiftUI，不是旧版 alexzielenski/Mousecape。
-
-下载：https://github.com/sdmj76-team/Mousecape-swiftUI/releases
-
-### D. 重启
-
-1. 退出 Mousecape（Cmd+Q）
-2. 重新打开 → Apply
-3. 还不行：重启 Mac → 打开 Mousecape → Apply
-
-### E. 终端强制应用（高级）
-
-把路径改成你的 .cape 实际位置：
-
-/Applications/Mousecape.app/Contents/MacOS/mousecloak --apply ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
-
-若报错，把终端输出发给维护者。
-
-### 仍不行？
-
-1. 确认不是只装了 MaCursor（MaCursor 不能直接打开 .cape）
-2. Terminal / Excel 等 App 内可能仍是系统光标，属正常
-3. GitHub Issues：https://github.com/Amory0709/cat-cursors/issues
-
-设计者：HappyCadogt https://space.bilibili.com/406949928
+猫标 Cat Cursor - 请先读这个
+==============================
+
+## 导入完全没反应？（最常见）
+
+「没反应」= 双击 .cape 后 Mousecape 没打开，或打开了但左侧列表没有「猫标 Cat Cursor」。
+
+### 先确认这 3 件事
+
+1. **已安装 Mousecape-swiftUI**（不是 MaCursor，不是旧版 Mousecape）
+   https://github.com/sdmj76-team/Mousecape-swiftUI/releases
+
+2. **应用程序文件夹里有 Mousecape.app**
+   启动台 → 搜 Mousecape → 能打开窗口
+
+3. **不要只靠双击 .cape**
+   正确顺序：先打开 Mousecape → 再导入
+
+### 推荐：双击「手动导入.command」
+
+解压包里除了 Cat-Cursor.cape，还有 **手动导入.command**：
+
+1. 右键 → 打开（首次可能被 Gatekeeper 拦，选「打开」）
+2. 脚本会把主题复制到 Mousecape 目录并打开 App
+3. 在左侧选「猫标 Cat Cursor」→ 点 **Apply**
+
+### 手动导入（不用脚本）
+
+**A. 拖放（最稳）**
+
+1. 打开 Mousecape（应用程序里点，不是双击 .cape）
+2. 把 **Cat-Cursor.cape** 拖进 Mousecape 窗口
+3. 应弹出导入成功提示；左侧出现「猫标 Cat Cursor」
+
+**B. 菜单导入**
+
+Mousecape → **Import / 导入** → 选 Cat-Cursor.cape
+
+**C. 终端（把路径改成你的）**
+
+cd ~/Downloads/Cat-Cursor-macOS
+xattr -dr com.apple.quarantine Cat-Cursor.cape
+mkdir -p ~/Library/Application\ Support/Mousecape/capes
+cp Cat-Cursor.cape ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
+open -a Mousecape
+open -a Mousecape ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
+
+### 装错 App 的对照
+
+| 你装的 | 双击 .cape |
+|--------|------------|
+| **Mousecape-swiftUI** | 应能导入 |
+| MaCursor | **没反应**（不支持 .cape） |
+| 旧版 Mousecape | Apple Silicon 上常**打不开窗口** |
+
+### Mousecape 打开了但列表仍空
+
+1. Cmd+Q 完全退出 Mousecape → 重新打开
+2. 用菜单 **Import** 再选一次
+3. 删旧数据重装 Mousecape-swiftUI：
+   rm -rf ~/Library/Application\ Support/Mousecape
+   rm -rf ~/Library/Preferences/com.alexzielenski.*
+4. 重新安装最新 Mousecape-swiftUI
+
+### 备选：不用 .cape
+
+**Trace**（也支持 .cape）：
+https://github.com/User1334/Trace/releases
+
+**Mousecape 导入 Windows 原版**（从 B 站下 Windows 猫标）：
+Mousecape → + → Import Windows Cursors → 选解压后的 Windows 光标文件夹
+
+---
+
+## 导入成功后的 Apply 步骤
+
+导入后光标**不会自动变**！
+
+1. 左侧选 **「猫标 Cat Cursor」**
+2. 点 **Apply / 应用**
+3. Mousecape → 设置 → 通用 → **开机自动应用**
+
+## 导入并点了 Apply 仍无效
+
+### 1. 辅助功能权限
+
+系统设置 → 隐私与安全性 → **辅助功能** → 打开 **Mousecape** → Cmd+Q 退出再打开 → Apply
+
+### 2. 重设指针颜色
+
+系统设置 → 辅助功能 → 显示 → 指针 → **重设颜色** → 再 Apply
+
+### 3. 终端强制应用
+
+/Applications/Mousecape.app/Contents/MacOS/mousecloak --apply ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
+
+---
+
+设计者：HappyCadogt https://space.bilibili.com/406949928
+问题反馈：https://github.com/Amory0709/cat-cursors/issues
+

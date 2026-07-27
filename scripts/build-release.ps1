@@ -13,6 +13,7 @@ New-Item -ItemType Directory -Path (Join-Path $Stage "lib") -Force | Out-Null
 
 Copy-Item (Join-Path $Root "mac\dist\Cat-Cursor.cape") (Join-Path $Stage "Cat-Cursor.cape") -ErrorAction Stop
 Copy-Item (Join-Path $Root "mac\package\Install Cat Cursor.command") $Stage
+Copy-Item (Join-Path $Root "mac\package\手动导入.command") $Stage
 Copy-Item (Join-Path $Root "mac\lib\install_core.sh") (Join-Path $Stage "lib\install_core.sh")
 $QuickStart = Get-ChildItem (Join-Path $Root "mac\package\*.txt") |
     Where-Object { $_.Name -ne "README.txt" } |
