@@ -1,8 +1,23 @@
 # 猫标 macOS 版
 
-HappyCadogt 设计的「猫标」鼠标指针 macOS 移植。输出为 [Mousecape](https://github.com/alexzielenski/Mousecape) 可导入的 `.cape` 主题。
+[**HappyCadogt**](https://space.bilibili.com/406949928)（[哔哩哔哩 @406949928](https://space.bilibili.com/406949928)）设计的「猫标」鼠标指针 macOS 移植。输出为 [Mousecape](https://github.com/alexzielenski/Mousecape) 可导入的 `.cape` 主题。
 
 [返回主 README](../README.md)
+
+## 光标预览
+
+| 样式 | 说明 | 预览 |
+| --- | --- | --- |
+| 默认箭头 | 日常指针 | ![default](../docs/previews/default.png) |
+| 文本选择 | 输入文字 | ![text](../docs/previews/text.png) |
+| 链接手型 | 悬停链接 | ![pointer](../docs/previews/pointer.png) |
+| 等待加载 | 加载动画 | ![wait](../docs/previews/wait.png) |
+
+完整样式表见 [主 README](../README.md#光标预览)。
+
+## 设计者
+
+全部光标美术与动画由 B 站 UP 主 **HappyCadogt** 原创设计，详见 [主 README 设计者章节](../README.md#设计者)。
 
 ## 为什么需要 Mousecape
 
@@ -139,8 +154,9 @@ A: 不能。macOS 不支持零依赖的原生光标主题安装。
 
 ## 鸣谢
 
-- 原作者：[哔哩哔哩 @HappyCadogt](https://space.bilibili.com/406949928)
-- Linux 移植：[Ryan / Tseshongfeeshur](https://github.com/Tseshongfeeshur/cat-cursors)（本仓库 fork 并含 macOS 版）
+- **设计者 [HappyCadogt](https://space.bilibili.com/406949928)**（[哔哩哔哩 @406949928](https://space.bilibili.com/406949928)）：全部光标设计与动画
+- Linux 移植：[Ryan / Tseshongfeeshur](https://github.com/Tseshongfeeshur/cat-cursors)
+- macOS 移植：[Amory0709](https://github.com/Amory0709)
 - 光标管理工具：[Mousecape](https://github.com/alexzielenski/Mousecape)
 
 ## English summary

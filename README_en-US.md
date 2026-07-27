@@ -2,22 +2,47 @@
 
 [中文](./README.md) | English
 
-<!-- ![Banner](./banner.png) -->
+## Preview
+
+![Cat cursor theme preview](./docs/previews/showcase.png)
+
+| Style | Description | Preview |
+| --- | --- | --- |
+| Default arrow | Everyday pointer with animated cat | ![default](./docs/previews/default.png) |
+| Text select | I-beam for typing | ![text](./docs/previews/text.png) |
+| Link / hand | Hovering links and clickable areas | ![pointer](./docs/previews/pointer.png) |
+| Grab | Dragging, closed hand | ![pointer_2](./docs/previews/pointer_2.png) |
+| Wait | Loading animation | ![wait](./docs/previews/wait.png) |
+| Progress | Busy but clickable | ![progress](./docs/previews/progress.png) |
+| Horizontal resize | Left-right resizing | ![size_hor](./docs/previews/size_hor.png) |
+| Vertical resize | Up-down resizing | ![size_ver](./docs/previews/size_ver.png) |
+
+> All cursors are animated. Previews show a single representative frame.
+
+## Designer
+
+| | |
+| --- | --- |
+| **Designer** | [**HappyCadogt**](https://space.bilibili.com/406949928) |
+| **Bilibili** | [@406949928](https://space.bilibili.com/406949928) |
+| **Showcase video** | [Loading cat cursor demo](https://www.bilibili.com/video/BV1S2itBHEJH/) |
+
+**HappyCadogt** is the original designer of the Cat Cursor theme, responsible for all artwork and animations. The Linux and macOS ports in this repository are based on their work. **All design rights belong to the original author.** If you enjoy this theme, please follow and support them on Bilibili.
 
 ## About
 
-- **Original Author**: [Bilibili @406949928 (HappyCadogt)](https://space.bilibili.com/406949928)
+- **Original design**: [Bilibili @HappyCadogt (UID: 406949928)](https://space.bilibili.com/406949928)
 - **Linux port**: [GitHub @Tseshongfeeshur (Ryan)](https://github.com/Tseshongfeeshur)
-- **macOS port**: `mac/` directory in this repository
+- **macOS port**: [GitHub @Amory0709](https://github.com/Amory0709) — `mac/` directory in this repo
 
 As of the project release date (2026-02-10), the original author only provided a Windows version. Ryan ported it to an [XDG cursor theme package](https://specifications.freedesktop.org/icon-theme/latest/) for GNU/Linux. This repository also includes a macOS port based on [Mousecape](https://github.com/alexzielenski/Mousecape).
 
-**Many thanks to HappyCadogt — without their work, none of these ports would exist.**
+**Many thanks to HappyCadogt — without their original design, none of these ports would exist.**
 
 ## Project Content
 
-- Designed and created by **[HappyCadogt](https://space.bilibili.com/406949928)**
-- **Fully** animated cursors
+- **Independently designed and created** by [**HappyCadogt**](https://space.bilibili.com/406949928)
+- Hand-drawn cat style; **fully** animated cursors
 - Supports **24 / 32 / 48 / 64 / 96 / 128 / 192 / 256** pixel resolutions
 
 ## Supported Platforms
@@ -144,11 +169,14 @@ See **[mac/README.md](./mac/README.md)** for DMG packaging, manual import, and b
 
 ## Acknowledgements
 
-- **[HappyCadogt](https://space.bilibili.com/406949928)** — original design
-- **Ryan (Tseshongfeeshur)** — Linux port
-- **`xorg-xcursorgen`** — multi-resolution cursor generation
+- **Designer [HappyCadogt](https://space.bilibili.com/406949928)** ([Bilibili @406949928](https://space.bilibili.com/406949928)): all cursor artwork and animations
+- **Ryan (Tseshongfeeshur)**: Linux XDG port
+- **Amory0709**: macOS port and repository maintenance
+- **`xorg-xcursorgen`**: multi-resolution cursor generation
 
 ## Links
 
+- Designer on Bilibili: https://space.bilibili.com/406949928
+- Showcase video: https://www.bilibili.com/video/BV1S2itBHEJH/
 - Blog post (Linux): https://blog.ryanyuan.top/2026/02/10/cat-cursors/
-- Original author on Bilibili: https://space.bilibili.com/406949928
+- Upstream Linux port: https://github.com/Tseshongfeeshur/cat-cursors
