@@ -78,7 +78,7 @@ makepkg -si
 2. 克隆并安装到用户目录（推荐）：
 
    ```zsh
-   git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
+   git clone https://github.com/Amory0709/cat-cursors.git hei_cursors
    mkdir -p ~/.local/share/icons/
    mv ./hei_cursors ~/.local/share/icons/
    ```
@@ -86,7 +86,7 @@ makepkg -si
    或安装到系统目录（不建议，`pacman` 等包管理器无法追踪）：
 
    ```zsh
-   git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
+   git clone https://github.com/Amory0709/cat-cursors.git hei_cursors
    sudo mkdir -p /usr/share/icons/
    sudo mv ./hei_cursors /usr/share/icons/
    ```

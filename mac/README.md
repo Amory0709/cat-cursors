@@ -140,7 +140,7 @@ A: 不能。macOS 不支持零依赖的原生光标主题安装。
 ## 鸣谢
 
 - 原作者：[哔哩哔哩 @HappyCadogt](https://space.bilibili.com/406949928)
-- Linux 移植：[Ryan / Tseshongfeeshur](https://github.com/Tseshongfeeshur/cat-cursors)
+- Linux 移植：[Ryan / Tseshongfeeshur](https://github.com/Tseshongfeeshur/cat-cursors)（本仓库 fork 并含 macOS 版）
 - 光标管理工具：[Mousecape](https://github.com/alexzielenski/Mousecape)
 
 ## English summary

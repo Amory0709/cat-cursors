@@ -78,7 +78,7 @@ makepkg -si
 2. Clone and install for the current user (recommended):
 
    ```zsh
-   git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
+   git clone https://github.com/Amory0709/cat-cursors.git hei_cursors
    mkdir -p ~/.local/share/icons/
    mv ./hei_cursors ~/.local/share/icons/
    ```
@@ -86,7 +86,7 @@ makepkg -si
    Or install system-wide (not recommended):
 
    ```zsh
-   git clone https://github.com/Tseshongfeeshur/cat-cursors.git hei_cursors
+   git clone https://github.com/Amory0709/cat-cursors.git hei_cursors
    sudo mkdir -p /usr/share/icons/
    sudo mv ./hei_cursors /usr/share/icons/
    ```
