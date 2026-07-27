@@ -91,12 +91,12 @@ apply_with_mousecape() {
 
   if [[ -x "$mousecloak" ]]; then
     if "$mousecloak" --apply "$INSTALLED_CAPE" >/dev/null 2>&1; then
-      alert "安装完成" "猫标光标已应用。若光标未变化，请在已打开的 Mousecape 窗口左侧选中「猫标 Cat Cursor」并点击 Apply。然后在 设置 > 通用 开启「开机自动应用」。"
+      alert "安装完成" "猫标光标已应用。若光标未变化：1) 在 Mousecape 选中「猫标 Cat Cursor」并点 Apply；2) 系统设置 > 隐私与安全性 > 辅助功能 中开启 Mousecape；3) 辅助功能 > 显示 > 指针 点「重设颜色」后再 Apply。"
       return 0
     fi
   fi
 
-  alert "还需一步" "Mousecape 应已打开并已导入主题。请在左侧列表选中「猫标 Cat Cursor」，点击 Apply 应用。导入不等于已应用。"
+  alert "还需一步" "请在 Mousecape 左侧选中「猫标 Cat Cursor」并点 Apply。若仍无效：系统设置 > 隐私与安全性 > 辅助功能 开启 Mousecape；辅助功能 > 显示 > 指针 点「重设颜色」后再 Apply。"
 }
 
 apply_with_open_only() {

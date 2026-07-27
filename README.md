@@ -78,8 +78,16 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具�
 3. 左侧列表选中 **「猫标 Cat Cursor」**
 4. 点击 **Apply / 应用**（没点这步光标不会变）
 5. **设置 > 通用 > 开机自动应用**
+6. **系统设置 > 隐私与安全性 > 辅助功能**：打开 **Mousecape** 开关（没权限 Apply 无效）
 
 双击 `.cape` 若没反应：说明 Mousecape 未安装，或未关联 `.cape`。请用拖放导入。
+
+**导入并点了 Apply 仍无效？**
+
+1. **辅助功能权限**：系统设置 → 隐私与安全性 → 辅助功能 → 开启 Mousecape → 退出 Mousecape（Cmd+Q）再打开 → 重新 Apply
+2. **重设指针颜色**：系统设置 → 辅助功能 → 显示 → 指针 → **重设颜色** → 再 Apply（否则可能只在 Dock 生效）
+3. 确认装的是 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**，不是旧版 Mousecape
+4. 仍不行：重启 Mac 后再 Apply
 
 ```bash
 # 或终端（改路径）

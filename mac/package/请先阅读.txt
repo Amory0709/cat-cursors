@@ -42,10 +42,50 @@ C. 终端执行（把路径改成你的解压位置）：
 
 Mousecape → 设置 → 通用 → 开启「开机自动应用」
 
-## 仍不行？
+## 导入并点了 Apply 仍无效？（按顺序做）
 
-1. 系统设置 → 辅助功能 → 显示 → 指针 → 点「重设颜色」
-2. 回 Mousecape 再点一次 Apply
-3. 确认不是只装了 MaCursor（MaCursor 不能直接打开 .cape）
+### A. 给 Mousecape 辅助功能权限（最常见）
+
+没这权限，导入成功也不会换光标。
+
+1. 系统设置 → 隐私与安全性 → 辅助功能
+2. 点左下角锁，输入密码解锁
+3. 找到 Mousecape，开关打开
+4. 若没有 Mousecape：点 + → 选「应用程序」里的 Mousecape.app
+5. 完全退出 Mousecape（Cmd+Q），再打开 → 选中主题 → 再点 Apply
+
+### B. 重设系统指针颜色
+
+自定义指针颜色会阻止 Mousecape 全局生效（常见：只在 Dock/桌面有效，进 App 又变回默认）。
+
+1. 系统设置 → 辅助功能 → 显示 → 指针
+2. 点「重设颜色 / Reset Color」
+3. 回 Mousecape 再点 Apply
+
+### C. 确认是 Mousecape-swiftUI
+
+应用程序里必须是新版 Mousecape-swiftUI，不是旧版 alexzielenski/Mousecape。
+
+下载：https://github.com/sdmj76-team/Mousecape-swiftUI/releases
+
+### D. 重启
+
+1. 退出 Mousecape（Cmd+Q）
+2. 重新打开 → Apply
+3. 还不行：重启 Mac → 打开 Mousecape → Apply
+
+### E. 终端强制应用（高级）
+
+把路径改成你的 .cape 实际位置：
+
+/Applications/Mousecape.app/Contents/MacOS/mousecloak --apply ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
+
+若报错，把终端输出发给维护者。
+
+### 仍不行？
+
+1. 确认不是只装了 MaCursor（MaCursor 不能直接打开 .cape）
+2. Terminal / Excel 等 App 内可能仍是系统光标，属正常
+3. GitHub Issues：https://github.com/Amory0709/cat-cursors/issues
 
 设计者：HappyCadogt https://space.bilibili.com/406949928
