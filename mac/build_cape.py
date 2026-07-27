@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a Mousecape .cape theme from the Linux port source PNGs."""
+"""Build a Mousecape-swiftUI compatible .cape theme from source PNGs."""
 
 from __future__ import annotations
 
@@ -9,11 +9,16 @@ import sys
 from io import BytesIO
 from pathlib import Path
 
+import pillow_heif
 from PIL import Image
+
+pillow_heif.register_heif_opener()
 
 ROOT = Path(__file__).resolve().parent.parent
 SOURCES = ROOT / "sources" / "pngs" / "animated"
 DIST = Path(__file__).resolve().parent / "dist"
+
+CAPE_IDENTIFIER = "local.happycadogt.cat-cursor"
 
 CURSOR_MAPPINGS: dict[str, str] = {
     "com.apple.coregraphics.Arrow": "default",
@@ -107,12 +112,12 @@ def load_scaled_frames(
     frames: list[tuple[int, int, int, Path, int]],
     target_size: int,
     max_frames: int,
-) -> tuple[list[Image.Image], int, int, float]:
+) -> tuple[list[Image.Image], float, float, float]:
     frames = downsample_frames(frames, max_frames)
     orig_size = frames[0][0]
     scale = target_size / orig_size
-    xhot = int(round(frames[0][1] * scale))
-    yhot = int(round(frames[0][2] * scale))
+    xhot = round(frames[0][1] * scale, 1)
+    yhot = round(frames[0][2] * scale, 1)
     frame_duration = frames[0][4] / 1000.0
 
     images: list[Image.Image] = []
@@ -125,7 +130,7 @@ def load_scaled_frames(
     return images, xhot, yhot, frame_duration
 
 
-def stack_frames(images: list[Image.Image]) -> bytes:
+def stack_frames_heif(images: list[Image.Image]) -> bytes:
     width, height = images[0].size
     stacked = Image.new("RGBA", (width, height * len(images)), (0, 0, 0, 0))
 
@@ -133,7 +138,7 @@ def stack_frames(images: list[Image.Image]) -> bytes:
         stacked.paste(image, (0, index * height))
 
     buffer = BytesIO()
-    stacked.save(buffer, format="PNG")
+    stacked.save(buffer, format="HEIF", quality=85)
     return buffer.getvalue()
 
 
@@ -152,16 +157,17 @@ def build_cursor_entry(
         target_size,
         max_frames,
     )
-    png_bytes = stack_frames(images)
+    heif_bytes = stack_frames_heif(images)
+    size = float(target_size)
 
     return {
         "FrameCount": len(images),
-        "FrameDuration": frame_duration,
-        "HotSpotX": xhot,
-        "HotSpotY": yhot,
-        "PointsWide": target_size,
-        "PointsHigh": target_size,
-        "Representations": [png_bytes],
+        "FrameDuration": float(frame_duration),
+        "HotSpotX": float(xhot),
+        "HotSpotY": float(yhot),
+        "PointsWide": size,
+        "PointsHigh": size,
+        "Representations": [heif_bytes],
     }
 
 
@@ -184,8 +190,12 @@ def build_cape(target_size: int, max_frames: int, output_path: Path) -> None:
     cape = {
         "Author": "HappyCadogt / Ryan / macOS port",
         "CapeName": "猫标 Cat Cursor",
-        "CapeVersion": 1,
+        "CapeVersion": 3.0,
         "Cloud": False,
+        "HiDPI": True,
+        "Identifier": CAPE_IDENTIFIER,
+        "MinimumVersion": 2.0,
+        "Version": 2.0,
         "Cursors": cursors,
     }
 
@@ -194,7 +204,7 @@ def build_cape(target_size: int, max_frames: int, output_path: Path) -> None:
         plistlib.dump(cape, handle, fmt=plistlib.FMT_XML)
 
     size_kb = output_path.stat().st_size // 1024
-    print(f"Wrote {output_path.name} ({size_kb} KB)")
+    print(f"Wrote {output_path.name} ({size_kb} KB, Mousecape-swiftUI HEIF format)")
 
 
 def main() -> int:
@@ -203,13 +213,13 @@ def main() -> int:
         "--size",
         type=int,
         default=64,
-        help="Cursor size in macOS points (default: 64, recommended for modern managers)",
+        help="Cursor size in macOS points (default: 64)",
     )
     parser.add_argument(
         "--max-frames",
         type=int,
         default=24,
-        help="Maximum animation frames per cursor (default: 24 for Apple Silicon tools)",
+        help="Maximum animation frames per cursor (default: 24)",
     )
     parser.add_argument(
         "--output",

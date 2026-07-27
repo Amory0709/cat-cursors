@@ -23,7 +23,7 @@ HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具�
 
 **最简单：** 解压后先读 **`请先阅读.txt`**，再按步骤在 Mousecape-swiftUI 里 **导入 + 点 Apply**。
 
-> 双击 `.cape` 只会**导入**主题，不会自动换光标；且若未安装 Mousecape-swiftUI，双击可能完全没反应。
+> **v1.2.0+** 起 `.cape` 使用 **Mousecape-swiftUI 兼容格式**（HEIF + Identifier 等字段）。旧版 v1.1.0 及以下在 swiftUI 中可能**导入无反应**。
 
 ## 光标预览
 
