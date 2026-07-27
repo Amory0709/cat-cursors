@@ -32,7 +32,12 @@ macOS 没有官方的光标主题机制，无法像 Windows 那样双击安装�
 
 ## 安装方式
 
-### 方式一：安装脚本（推荐）
+### 方式一：Release 安装包（推荐）
+
+1. 从 [Releases](https://github.com/Amory0709/cat-cursors/releases/latest) 下载 `Cat-Cursor-macOS.zip` 或 `.dmg`
+2. 解压 / 挂载后双击 **Install Cat Cursor.command**
+
+### 方式二：安装脚本
 
 ```bash
 cd mac
@@ -47,13 +52,13 @@ chmod +x install.sh
 3. 调用 `mousecloak --apply` 应用光标
 4. 弹出完成提示
 
-### 方式二：手动导入
+### 方式三：手动导入
 
-1. 双击 [`dist/猫标-Cat-Cursor.cape`](./dist/猫标-Cat-Cursor.cape)
+1. 双击 [`dist/Cat-Cursor.cape`](./dist/Cat-Cursor.cape)
 2. 在 Mousecape 中选择「猫标 Cat Cursor」
 3. 点击 **Apply**
 
-### 方式三：DMG 安装包
+### 方式四：DMG 安装包（自行构建）
 
 在 macOS 上构建 DMG（需本机执行，无法在 Windows / Linux 交叉编译）：
 
@@ -63,7 +68,7 @@ chmod +x build_dmg.sh
 ./build_dmg.sh
 ```
 
-生成文件：`mac/dist/猫标-Cat-Cursor-Installer.dmg`
+生成文件：`mac/dist/Cat-Cursor-Installer.dmg`
 
 用户流程：
 
@@ -112,13 +117,13 @@ python3 build_cape.py
 可选参数：
 
 ```bash
-python3 build_cape.py --size 48 --output dist/猫标-Cat-Cursor.cape
+python3 build_cape.py --size 48 --output dist/Cat-Cursor.cape
 ```
 
 | 参数 | 默认值 | 说明 |
 | --- | --- | --- |
 | `--size` | `48` | 光标显示尺寸（macOS points） |
-| `--output` | `dist/猫标-Cat-Cursor.cape` | 输出路径 |
+| `--output` | `dist/Cat-Cursor.cape` | 输出路径 |
 
 ## 目录结构
 
@@ -134,8 +139,8 @@ mac/
 │   ├── Install Cat Cursor.command
 │   └── README.txt
 └── dist/
-    ├── 猫标-Cat-Cursor.cape       # 预构建主题
-    └── 猫标-Cat-Cursor-Installer.dmg  # 运行 build_dmg.sh 后生成
+    ├── Cat-Cursor.cape            # 预构建主题
+    └── Cat-Cursor-Installer.dmg   # 运行 build_dmg.sh 后生成
 ```
 
 ## 常见问题
@@ -155,9 +160,8 @@ A: 不能。macOS 不支持零依赖的原生光标主题安装。
 ## 鸣谢
 
 - **设计者 [HappyCadogt](https://space.bilibili.com/406949928)**（[哔哩哔哩 @406949928](https://space.bilibili.com/406949928)）：全部光标设计与动画
-- Linux 移植：[Ryan / Tseshongfeeshur](https://github.com/Tseshongfeeshur/cat-cursors)
-- macOS 移植：[Amory0709](https://github.com/Amory0709)
-- 光标管理工具：[Mousecape](https://github.com/alexzielenski/Mousecape)
+- **Amory0709**：macOS 移植与本仓库维护
+- **光标管理工具**：[Mousecape](https://github.com/alexzielenski/Mousecape)
 
 ## English summary
 

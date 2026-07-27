@@ -1,1 +1,2 @@
-sources/cat_cursors
+dist/Cat-Cursor-macOS/
+dist/*.zip

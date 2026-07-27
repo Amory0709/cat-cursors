@@ -1,6 +1,14 @@
-# **A Cat Cursor Theme**
+# Cat Cursor Theme (macOS)
 
 [中文](./README.md) | English
+
+Animated cat cursor theme by HappyCadogt for macOS. Requires [Mousecape](https://github.com/alexzielenski/Mousecape/releases).
+
+## Download
+
+Get the latest installer from **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)**, then double-click **Install Cat Cursor.command**.
+
+Install [Mousecape](https://github.com/alexzielenski/Mousecape/releases) first.
 
 ## Preview
 
@@ -27,156 +35,54 @@
 | **Bilibili** | [@406949928](https://space.bilibili.com/406949928) |
 | **Showcase video** | [Loading cat cursor demo](https://www.bilibili.com/video/BV1S2itBHEJH/) |
 
-**HappyCadogt** is the original designer of the Cat Cursor theme, responsible for all artwork and animations. The Linux and macOS ports in this repository are based on their work. **All design rights belong to the original author.** If you enjoy this theme, please follow and support them on Bilibili.
+**HappyCadogt** is the original designer of the Cat Cursor theme. This macOS port is based on their work. **All design rights belong to the original author.**
 
 ## About
 
 - **Original design**: [Bilibili @HappyCadogt (UID: 406949928)](https://space.bilibili.com/406949928)
-- **Linux port**: [GitHub @Tseshongfeeshur (Ryan)](https://github.com/Tseshongfeeshur)
-- **macOS port**: [GitHub @Amory0709](https://github.com/Amory0709) — `mac/` directory in this repo
-
-As of the project release date (2026-02-10), the original author only provided a Windows version. Ryan ported it to an [XDG cursor theme package](https://specifications.freedesktop.org/icon-theme/latest/) for GNU/Linux. This repository also includes a macOS port based on [Mousecape](https://github.com/alexzielenski/Mousecape).
-
-**Many thanks to HappyCadogt — without their original design, none of these ports would exist.**
-
-## Project Content
-
-- **Independently designed and created** by [**HappyCadogt**](https://space.bilibili.com/406949928)
+- **macOS port**: [GitHub @Amory0709](https://github.com/Amory0709)
 - Hand-drawn cat style; **fully** animated cursors
-- Supports **24 / 32 / 48 / 64 / 96 / 128 / 192 / 256** pixel resolutions
+- Maps **28** macOS system cursor roles
 
 ## Supported Platforms
 
-| Platform | Status | Notes |
-| --- | --- | --- |
-| Windows | Original | Download from [Bilibili @HappyCadogt](https://space.bilibili.com/406949928) |
-| GNU/Linux | Ported | XDG theme; tested on KDE Plasma and GNOME |
-| macOS | Ported | Requires [Mousecape](https://github.com/alexzielenski/Mousecape/releases); see [`mac/README.md`](./mac/README.md) |
-
----
-
-## Linux Installation
-
-### Arch Linux (recommended)
-
-#### Install with an AUR helper
-
-```zsh
-paru -S cat-cursors-git
-```
-
-Or with another AUR helper:
-
-```zsh
-yay -S cat-cursors-git
-```
-
-#### Install the AUR package manually
-
-```zsh
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/cat-cursors-git.git
-cd cat-cursors-git
-makepkg -si
-```
-
-### Other distributions (manual installation)
-
-1. Install `git`
-
-   Debian / Ubuntu:
-   ```zsh
-   sudo apt update
-   sudo apt install git
-   ```
-
-   Fedora:
-   ```zsh
-   sudo dnf install git
-   ```
-
-   Arch Linux:
-   ```zsh
-   sudo pacman -S git
-   ```
-
-2. Clone and install for the current user (recommended):
-
-   ```zsh
-   git clone https://github.com/Amory0709/cat-cursors.git hei_cursors
-   mkdir -p ~/.local/share/icons/
-   mv ./hei_cursors ~/.local/share/icons/
-   ```
-
-   Or install system-wide (not recommended):
-
-   ```zsh
-   git clone https://github.com/Amory0709/cat-cursors.git hei_cursors
-   sudo mkdir -p /usr/share/icons/
-   sudo mv ./hei_cursors /usr/share/icons/
-   ```
-
----
-
-## Applying the Theme on Linux
-
-### KDE Plasma
-
-1. Open **System Settings → Appearance & Style → Colors & Themes → Cursors**, or run:
-   ```zsh
-   systemsettings kcm_cursortheme
-   ```
-
-2. Select the "**A Cat**" theme and click "**Apply**"
-3. Choose a comfortable cursor size
-
-### GNOME
-
-1. Install `gnome-tweaks`
-2. Open **Tweaks → Appearance → Cursor**
-3. Select "**Cat_cursor**" from the dropdown
-4. Set cursor size, for example:
-   ```zsh
-   gsettings set org.gnome.desktop.interface cursor-size 48
-   ```
-
-### Other desktop environments
-
-Refer to your environment's documentation for applying XDG cursor themes.
+| Platform | Notes |
+| --- | --- |
+| **macOS** | Installer in this repo; requires [Mousecape](https://github.com/alexzielenski/Mousecape/releases) |
+| **Windows** | Download the original from [Bilibili @HappyCadogt](https://space.bilibili.com/406949928) |
 
 ---
 
 ## macOS Installation
 
-macOS does **not** support native system-wide cursor themes like Windows or Linux. You need [Mousecape](https://github.com/alexzielenski/Mousecape/releases).
+### Option 1: Release package (recommended)
 
-### Quick start
+1. Install [Mousecape](https://github.com/alexzielenski/Mousecape/releases)
+2. Download `Cat-Cursor-macOS.zip` or `.dmg` from [Releases](https://github.com/Amory0709/cat-cursors/releases/latest)
+3. Double-click **Install Cat Cursor.command**
+4. On first use, choose **Install Helper Tool** in the Mousecape menu
 
-1. Install Mousecape
-2. Run the installer script:
+### Option 2: Clone and install
 
-   ```bash
-   cd mac
-   chmod +x install.sh
-   ./install.sh
-   ```
+```bash
+git clone https://github.com/Amory0709/cat-cursors.git
+cd cat-cursors/mac
+chmod +x install.sh
+./install.sh
+```
 
-3. On first use, choose **Install Helper Tool** in the Mousecape menu so cursors persist after login
-
-See **[mac/README.md](./mac/README.md)** for DMG packaging, manual import, and build instructions.
+See **[mac/README.md](./mac/README.md)** for details.
 
 ---
 
 ## Acknowledgements
 
-- **Designer [HappyCadogt](https://space.bilibili.com/406949928)** ([Bilibili @406949928](https://space.bilibili.com/406949928)): all cursor artwork and animations
-- **Ryan (Tseshongfeeshur)**: Linux XDG port
-- **Amory0709**: macOS port and repository maintenance
-- **`xorg-xcursorgen`**: multi-resolution cursor generation
+- **Designer [HappyCadogt](https://space.bilibili.com/406949928)** ([Bilibili @406949928](https://space.bilibili.com/406949928))
+- **Amory0709**: macOS port and maintenance
+- **[Mousecape](https://github.com/alexzielenski/Mousecape)**: cursor management for macOS
 
 ## Links
 
 - Designer on Bilibili: https://space.bilibili.com/406949928
 - Showcase video: https://www.bilibili.com/video/BV1S2itBHEJH/
-- Blog post (Linux): https://blog.ryanyuan.top/2026/02/10/cat-cursors/
-- Upstream Linux port: https://github.com/Tseshongfeeshur/cat-cursors
+- Latest release: https://github.com/Amory0709/cat-cursors/releases/latest

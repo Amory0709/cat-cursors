@@ -4,8 +4,8 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PACKAGE_DIR="$ROOT/package"
 STAGING="$(mktemp -d /tmp/cat-cursor-dmg.XXXXXX)"
-OUTPUT="$ROOT/dist/猫标-Cat-Cursor-Installer.dmg"
-VOLUME_NAME="猫标 Cat Cursor"
+OUTPUT="$ROOT/dist/Cat-Cursor-Installer.dmg"
+VOLUME_NAME="Cat Cursor"
 
 cleanup() {
   rm -rf "$STAGING"
@@ -18,11 +18,11 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
 fi
 
 echo ">>> 构建 .cape 主题"
-python3 "$ROOT/build_cape.py" --output "$ROOT/dist/猫标-Cat-Cursor.cape"
+python3 "$ROOT/build_cape.py" --output "$ROOT/dist/Cat-Cursor.cape"
 
 echo ">>> 准备安装包内容"
 mkdir -p "$STAGING/lib"
-cp "$ROOT/dist/猫标-Cat-Cursor.cape" "$STAGING/Cat-Cursor.cape"
+cp "$ROOT/dist/Cat-Cursor.cape" "$STAGING/Cat-Cursor.cape"
 cp "$PACKAGE_DIR/Install Cat Cursor.command" "$STAGING/"
 cp "$ROOT/lib/install_core.sh" "$STAGING/lib/"
 cp "$PACKAGE_DIR/README.txt" "$STAGING/"

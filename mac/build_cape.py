@@ -172,7 +172,7 @@ def main() -> int:
     parser.add_argument(
         "--output",
         type=Path,
-        default=DIST / "猫标-Cat-Cursor.cape",
+        default=DIST / "Cat-Cursor.cape",
         help="Output .cape path",
     )
     args = parser.parse_args()
