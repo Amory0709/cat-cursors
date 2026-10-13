@@ -1,2 +1,6 @@
-dist/Cat-Cursor-macOS/
-dist/*.zip
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+dist/
+mac/dist/

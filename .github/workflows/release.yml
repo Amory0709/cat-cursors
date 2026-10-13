@@ -1,51 +1,33 @@
 name: Release
-
 on:
   push:
-    tags:
-      - "v*"
-
+    tags: ['v*']
 permissions:
   contents: write
-
 jobs:
   release:
     runs-on: macos-latest
+    env:
+      CATCURSOR_REQUIRE_SOURCES: '1'
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
-
-      - name: Install build dependencies
-        run: pip install -r mac/requirements.txt
-
-      - name: Build cape theme
-        run: python3 mac/build_cape.py --output mac/dist/Cat-Cursor.cape
-
-      - name: Build DMG installer
-        run: |
-          chmod +x mac/package/build_dmg.sh
-          mac/package/build_dmg.sh
-
-      - name: Build ZIP installer
-        run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          STAGE="dist/Cat-Cursor-macOS"
-          mkdir -p "$STAGE/lib"
-          cp mac/dist/Cat-Cursor.cape "$STAGE/Cat-Cursor.cape"
-          cp "mac/package/Install Cat Cursor.command" "$STAGE/"
-          cp mac/lib/install_core.sh "$STAGE/lib/"
-          cp mac/package/README.txt "$STAGE/"
-          chmod +x "$STAGE/Install Cat Cursor.command" "$STAGE/lib/install_core.sh"
-          cd dist && zip -r "Cat-Cursor-macOS-v${VERSION}.zip" Cat-Cursor-macOS
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+          python-version: '3.12'
+      - run: python -m pip install -r mac/requirements.txt
+      - name: Regression tests including real artwork
+        run: python -m unittest discover -s tests -v
+      - name: Build ZIP and DMG
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: python scripts/build_release.py --version "${RELEASE_TAG#v}" --dmg
+      - name: Native AppKit validation
+        run: swift mac/verify_cape.swift mac/dist/Cat-Cursor.cape
+      - uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/Cat-Cursor-macOS-v*.zip
-            mac/dist/Cat-Cursor-Installer.dmg
+            dist/Cat-Cursor-macOS-*.zip
+            dist/Cat-Cursor-Installer.dmg
             mac/dist/Cat-Cursor.cape
+          fail_on_unmatched_files: true
           generate_release_notes: true

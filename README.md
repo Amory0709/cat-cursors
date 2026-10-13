@@ -1,161 +1,79 @@
-# 猫标主题鼠标指针（macOS）
+# 猫标 Cat Cursor — macOS 移植
 
 中文 | [English](./README_en-US.md)
 
-HappyCadogt 设计的猫咪动态光标 macOS 版。需配合光标管理工具使用（**推荐 [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**）。
+**Windows 原版与全部原创美术：HappyCadogt「猫标」**。本仓库将其移植为 macOS 的 Mousecape 主题，不是 Windows 原版项目。
 
-## Apple Silicon 用户必读
+| 平台 / 工作 | 原作者或项目 |
+| --- | --- |
+| **Windows 原版** | [HappyCadogt（B 站 UID 406949928）](https://space.bilibili.com/406949928) · [「加载中」的猫标](https://www.bilibili.com/video/BV1S2itBHEJH/)；Windows 下载按原作者发布说明获取 |
+| GNU/Linux 素材移植 | [Tseshongfeeshur / Ryan — cat-cursors](https://github.com/Tseshongfeeshur/cat-cursors)；本仓库 PNG/config 的上游 |
+| macOS 移植与维护 | [Amory0709 — 本仓库](https://github.com/Amory0709/cat-cursors) |
 
-旧版 [Mousecape](https://github.com/alexzielenski/Mousecape) 在 **Apple Silicon** 和新版 macOS 上已无法稳定工作。
+完整署名与权利说明：[CREDITS.md](./CREDITS.md)。原 MIT 文本保留不变，移植不表示拥有原作者美术版权。
 
-| 工具 | Apple Silicon | 说明 |
-| --- | --- | --- |
-| **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** | 支持 | **推荐**，通用二进制，直接导入 `.cape` |
-| **[Trace](https://github.com/User1334/Trace/releases)** | 支持 | 备选，支持 `.cape` |
-| **[MaCursor](https://github.com/writronic/MaCursor/releases)** | 支持 | 使用 `.cursor` 格式，需手动处理 |
-| 旧版 Mousecape | 不推荐 | Intel 老系统可用，Apple Silicon 请避免 |
+## 获取修复版
 
-## 下载安装
+修复分支的安装包由 [Validate and package](https://github.com/Amory0709/cat-cursors/actions/workflows/validate.yml) 生成。打开对应本次修复提交的成功运行，下载 **Cat-Cursor-macOS-candidate** artifact（GitHub 可能要求登录）。其中包含 ZIP、DMG 和独立 `.cape`。
 
-前往 **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)** 下载最新安装包。
+**旧 Releases 不会因为源码修改而自动更新。** 只有新的 `v*` 标签触发、且验证通过后，才会生成新的 [Release 安装包](https://github.com/Amory0709/cat-cursors/releases)。`mac/dist/` 是构建输出，不再提交两个不同内容的旧主题文件。
 
-前置：先安装 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**。
+候选包的自动测试不等于在你的 Mac 上实际完成 Apply。验证边界和手工验收见 [docs/VALIDATION.md](./docs/VALIDATION.md)。
 
-**最简单：** 解压后先读 **`请先阅读.txt`**，再按步骤在 Mousecape-swiftUI 里 **导入 + 点 Apply**。
+## 安装：只需导入和 Apply
 
-> **v1.2.0+** 起 `.cape` 使用 **Mousecape-swiftUI 兼容格式**（HEIF + Identifier 等字段）。旧版 v1.1.0 及以下在 swiftUI 中可能**导入无反应**。
+1. 从官方页面安装 [Mousecape-swiftUI](https://github.com/sdmj76/Mousecape-swiftUI/releases/latest)。其当前 README 要求 macOS 14+，提供 Intel / Apple Silicon 通用版本；实际以所下载版本说明为准。
+2. 先打开 Mousecape，再把 **Cat-Cursor.cape** 拖进窗口，或使用 **Import**。
+3. 确认导入，选中 **猫标 Cat Cursor**，点击 **Apply / 应用**。
+4. 用包内 **Cursor Test.html** 在 Safari 检查链接、文字、抓取、缩放及点击位置。
+
+升级旧主题时，可先用管理器的 **File > Reset System Cursor（Cmd+R）** 恢复默认，再导入新文件；不要删除整个主题库。是否覆盖已有同名主题，由你在管理器导入对话框中决定。
+
+`.command` 只是可选的导入助手，不会直接执行底层光标命令、不修改管理器私有目录，也不会把「打开请求成功」说成「已应用」。被 macOS 拦截时，直接跳过脚本，按上面步骤导入数据文件即可。**不需要关闭 Gatekeeper、递归清除隔离属性或运行 sudo。**
+
+## 本轮修复
+
+- 使用 Mousecape 实际识别的 WindowServer 标识，修复手型、抓取、横向/纵向缩放的错误映射；目前覆盖 **21 个标识、9 组素材**，不再把条目数量当作已验证角色数量。
+- 默认 **32 个逻辑点**，同时提供 **1x / 2x 无损 PNG** 图像。Hotspot 按实际 PNG 像素计算，并在构建时验证边界。
+- 按时间轴采样动画，保留完整循环时长。最多 **24 帧**；长动画会减少姿势和帧率，不能保证与 Windows 原版同样流畅。
+- 不把「禁止操作」错误地替换成「等待」，也不把精确十字光标替换成普通箭头。缺少对应素材的角色不覆盖，保留原生功能含义。
+- ZIP、DMG 和 Windows 主机打包共用清单，包含中文说明、导入助手、测试页、署名和 SHA256SUMS。
+
+PNG 是上游解码器支持的格式，**HEIF 不是导入的必要条件**。本次选用 PNG 是为了无损透明度和减少构建依赖，不把所有导入失败归因于格式。
 
 ## 光标预览
 
-![猫标光标样式预览](./docs/previews/showcase.png)
+![猫标样式代表帧](./docs/previews/showcase.png)
 
-| 样式 | 说明 | 预览 |
-| --- | --- | --- |
-| 默认箭头 | 日常指针，猫咪探头等动画 | ![default](./docs/previews/default.png) |
-| 文本选择 | 输入文字时的 I 形光标 | ![text](./docs/previews/text.png) |
-| 链接 / 手型 | 悬停链接、可点击区域 | ![pointer](./docs/previews/pointer.png) |
-| 抓取 | 拖拽、闭合手型 | ![pointer_2](./docs/previews/pointer_2.png) |
-| 等待 | 加载中动画 | ![wait](./docs/previews/wait.png) |
-| 忙碌 | 后台处理但仍可点击 | ![progress](./docs/previews/progress.png) |
-| 水平缩放 | 左右调整窗口/区域 | ![size_hor](./docs/previews/size_hor.png) |
-| 垂直缩放 | 上下调整窗口/区域 | ![size_ver](./docs/previews/size_ver.png) |
+这些是原素材的代表帧，不是本轮修复已通过系统应用验收的证明。
 
-> 以上均为动态光标，预览图为各样式的代表帧。完整动画请在安装后体验。
+## 排查与恢复
 
-## 设计者
+**导入没出现：** 确認下载的是新构建包，在已打开的 Mousecape 内使用 Import。脚本识别不到改名/非标准位置的 App 时，请手动导入，或设置 `MOUSECAPE_APP` 路径。
 
-| | |
-| --- | --- |
-| **设计者** | [**HappyCadogt**](https://space.bilibili.com/406949928) |
-| **哔哩哔哩** | [@406949928](https://space.bilibili.com/406949928) |
-| **介绍视频** | [「加载中」的猫标](https://www.bilibili.com/video/BV1S2itBHEJH/) |
+**只在 Dock 生效：** 管理器官方 [排查说明](https://github.com/sdmj76/Mousecape-swiftUI#troubleshooting) 指出自定义系统指针颜色可能干扰全局应用，可按说明重设颜色后重新 Apply。
 
-**HappyCadogt** 是「猫标」主题的原创设计者，负责全部光标的美术设计与动画制作。本仓库 macOS 版基于 TA 的作品移植，**版权归原作者所有**。如果喜欢这套光标，请前往 B 站关注并支持原作者。
+**某个应用不变化：** 部分应用使用自己的光标；同时在 Finder、Safari 测试，不通过删除配置或关闭系统安全机制解决。权限仅按管理器和 macOS 的实际提示处理。
 
-## 关于项目
+**恢复默认：** Mousecape → File → Reset System Cursor（Cmd+R）。登录后自动应用可在管理器设置中自行开启。
 
-- **原创设计**：[哔哩哔哩 @HappyCadogt（UID: 406949928）](https://space.bilibili.com/406949928)
-- **macOS 移植**：[GitHub @Amory0709](https://github.com/Amory0709)
+反馈请附：macOS 版本、芯片、Mousecape 版本、主题构建提交、发生在导入/Apply/切换角色的哪一步，以及截图或日志。不要发送敏感系统信息。
 
-- 手绘猫咪风格，**全部**为动态图标
-- 映射 **28** 种 macOS 系统光标角色
+## 开发与自行构建
 
-## 适用平台
-
-| 平台 | 说明 |
-| --- | --- |
-| **macOS** | 本仓库提供安装包，需 [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases) 或 Trace |
-| **Windows** | 请从 [B 站 @HappyCadogt](https://space.bilibili.com/406949928) 下载原版 |
-
----
-
-## macOS 安装
-
-### 方式一：Mousecape 手动导入（推荐）
-
-1. 安装并**先打开** [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)（应用程序里的 **Mousecape**）
-2. 把 **`Cat-Cursor.cape`** 拖进 Mousecape 窗口（或菜单 **Import / 导入**）
-3. 左侧列表选中 **「猫标 Cat Cursor」**
-4. 点击 **Apply / 应用**（没点这步光标不会变）
-5. **设置 > 通用 > 开机自动应用**
-6. **系统设置 > 隐私与安全性 > 辅助功能**：打开 **Mousecape** 开关（没权限 Apply 无效）
-
-双击 `.cape` 若没反应：说明 Mousecape 未安装，或未关联 `.cape`。请用拖放导入。
-
-**导入并点了 Apply 仍无效？**
-
-1. **辅助功能权限**：系统设置 → 隐私与安全性 → 辅助功能 → 开启 Mousecape → 退出 Mousecape（Cmd+Q）再打开 → 重新 Apply
-2. **重设指针颜色**：系统设置 → 辅助功能 → 显示 → 指针 → **重设颜色** → 再 Apply（否则可能只在 Dock 生效）
-3. 确认装的是 **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**，不是旧版 Mousecape
-4. 仍不行：重启 Mac 后再 Apply
+Python 3.10+；CI 使用 Python 3.12。安装主题的用户不需要 Python。
 
 ```bash
-# 或终端（改路径）
-open -a Mousecape
-open -a Mousecape ~/Downloads/Cat-Cursor-macOS/Cat-Cursor.cape
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r mac/requirements.txt
+python -m unittest discover -s tests -v
+python scripts/build_release.py --version candidate
+# 仅 macOS 可加 --dmg
 ```
 
-### 方式二：Release 安装脚本
+构建输出：`dist/Cat-Cursor-macOS-vcandidate.zip`；主题：`mac/dist/Cat-Cursor.cape`。
 
-1. 完成方式一的前 2 步
-2. 双击 **Install Cat Cursor.command**（若被拦截见下方 Gatekeeper 说明）
+Windows 主机可运行 `scripts/build-release.ps1` 生成相同的 **macOS** ZIP；它不是 Windows 光标安装器。Windows 原版请回到上方原作者链接。
 
-### Gatekeeper：无法打开安装脚本
-
-从 GitHub 下载的 `.command` **未 Apple 签名**，macOS 可能提示「无法验证是否包含恶意软件」。**不是病毒**，是未签名脚本的正常拦截。
-
-任选一种方式继续：
-
-**A. 跳过脚本（最简单）**
-
-直接双击 **`Cat-Cursor.cape`** 导入，不必运行 `.command`。
-
-**B. 右键打开**
-
-1. 在 `Install Cat Cursor.command` 上 **Control + 点击**（或右键）
-2. 选 **打开**
-3. 弹窗再点 **打开**
-
-**C. 系统设置放行**
-
-1. 先双击脚本触发拦截
-2. 打开 **系统设置 > 隐私与安全性**
-3. 底部点 **仍要打开**
-
-**D. 终端移除隔离属性**
-
-```bash
-cd ~/Downloads/Cat-Cursor-macOS   # 改成你的解压路径
-xattr -dr com.apple.quarantine .
-chmod +x "Install Cat Cursor.command"
-./Install Cat Cursor.command
-```
-
-### 方式三：克隆仓库安装
-
-```bash
-git clone https://github.com/Amory0709/cat-cursors.git
-cd cat-cursors/mac
-chmod +x install.sh
-./install.sh
-```
-
-### 方式四：手动导入（仓库内文件）
-
-双击 [`mac/dist/Cat-Cursor.cape`](./mac/dist/Cat-Cursor.cape)，在 Mousecape-swiftUI 中点击 **Apply**。
-
-完整说明见 **[mac/README.md](./mac/README.md)**。
-
----
-
-## 鸣谢
-
-- **设计者 [HappyCadogt](https://space.bilibili.com/406949928)**（[哔哩哔哩 @406949928](https://space.bilibili.com/406949928)）：全部光标的美术设计与动画
-- **Amory0709**：macOS 移植与本仓库维护
-- **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI)**：Apple Silicon 推荐的光标管理工具
-
-## 相关链接
-
-- 设计者 B 站主页：https://space.bilibili.com/406949928
-- 介绍视频：https://www.bilibili.com/video/BV1S2itBHEJH/
-- 最新安装包：https://github.com/Amory0709/cat-cursors/releases/latest
+详细参数：[mac/README.md](./mac/README.md)。

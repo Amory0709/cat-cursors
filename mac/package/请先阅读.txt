@@ -1,101 +1,35 @@
-猫标 Cat Cursor - 请先读这个
-==============================
-
-## 导入完全没反应？（最常见）
-
-「没反应」= 双击 .cape 后 Mousecape 没打开，或打开了但左侧列表没有「猫标 Cat Cursor」。
-
-### 先确认这 3 件事
-
-1. **已安装 Mousecape-swiftUI**（不是 MaCursor，不是旧版 Mousecape）
-   https://github.com/sdmj76-team/Mousecape-swiftUI/releases
-
-2. **应用程序文件夹里有 Mousecape.app**
-   启动台 → 搜 Mousecape → 能打开窗口
-
-3. **不要只靠双击 .cape**
-   正确顺序：先打开 Mousecape → 再导入
-
-### 推荐：双击「手动导入.command」
-
-解压包里除了 Cat-Cursor.cape，还有 **手动导入.command**：
-
-1. 右键 → 打开（首次可能被 Gatekeeper 拦，选「打开」）
-2. 脚本会把主题复制到 Mousecape 目录并打开 App
-3. 在左侧选「猫标 Cat Cursor」→ 点 **Apply**
-
-### 手动导入（不用脚本）
-
-**A. 拖放（最稳）**
-
-1. 打开 Mousecape（应用程序里点，不是双击 .cape）
-2. 把 **Cat-Cursor.cape** 拖进 Mousecape 窗口
-3. 应弹出导入成功提示；左侧出现「猫标 Cat Cursor」
-
-**B. 菜单导入**
-
-Mousecape → **Import / 导入** → 选 Cat-Cursor.cape
-
-**C. 终端（把路径改成你的）**
-
-cd ~/Downloads/Cat-Cursor-macOS
-xattr -dr com.apple.quarantine Cat-Cursor.cape
-mkdir -p ~/Library/Application\ Support/Mousecape/capes
-cp Cat-Cursor.cape ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
-open -a Mousecape
-open -a Mousecape ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
-
-### 装错 App 的对照
-
-| 你装的 | 双击 .cape |
-|--------|------------|
-| **Mousecape-swiftUI** | 应能导入 |
-| MaCursor | **没反应**（不支持 .cape） |
-| 旧版 Mousecape | Apple Silicon 上常**打不开窗口** |
-
-### Mousecape 打开了但列表仍空
-
-1. Cmd+Q 完全退出 Mousecape → 重新打开
-2. 用菜单 **Import** 再选一次
-3. 删旧数据重装 Mousecape-swiftUI：
-   rm -rf ~/Library/Application\ Support/Mousecape
-   rm -rf ~/Library/Preferences/com.alexzielenski.*
-4. 重新安装最新 Mousecape-swiftUI
-
-### 备选：不用 .cape
-
-**Trace**（也支持 .cape）：
-https://github.com/User1334/Trace/releases
-
-**Mousecape 导入 Windows 原版**（从 B 站下 Windows 猫标）：
-Mousecape → + → Import Windows Cursors → 选解压后的 Windows 光标文件夹
-
----
-
-## 导入成功后的 Apply 步骤
-
-导入后光标**不会自动变**！
-
-1. 左侧选 **「猫标 Cat Cursor」**
-2. 点 **Apply / 应用**
-3. Mousecape → 设置 → 通用 → **开机自动应用**
-
-## 导入并点了 Apply 仍无效
-
-### 1. 辅助功能权限
-
-系统设置 → 隐私与安全性 → **辅助功能** → 打开 **Mousecape** → Cmd+Q 退出再打开 → Apply
-
-### 2. 重设指针颜色
-
-系统设置 → 辅助功能 → 显示 → 指针 → **重设颜色** → 再 Apply
-
-### 3. 终端强制应用
-
-/Applications/Mousecape.app/Contents/MacOS/mousecloak --apply ~/Library/Application\ Support/Mousecape/capes/com.happycadogt.cat-cursor.cape
-
----
-
-设计者：HappyCadogt https://space.bilibili.com/406949928
-问题反馈：https://github.com/Amory0709/cat-cursors/issues
-
+猫标 Cat Cursor - 请先阅读
+
+推荐安装方式（不需要运行脚本）：
+1. 安装 Mousecape-swiftUI：
+   https://github.com/sdmj76/Mousecape-swiftUI/releases/latest
+2. 先打开 Mousecape，把 Cat-Cursor.cape 拖进窗口，或用 Import 导入。
+3. 确认导入，选中「猫标 Cat Cursor」，点击 Apply / 应用。
+4. 在 Safari 打开 Cursor Test.html，检查箭头、链接、文字、抓取及缩放区域。
+5. 恢复默认：Mousecape 菜单 File > Reset System Cursor，或 Cmd+R。
+
+导入不等于应用。安装脚本只请求打开主题，不会报告「已成功应用」。
+两个 .command 是可选的未签名导入助手；被 macOS 拦截时，跳过脚本即可。
+不要关闭 Gatekeeper、递归清除隔离属性，也不要删除整个 Mousecape 配置目录。
+SHA256SUMS 用于发现文件损坏，不是数字签名或安全担保。
+
+默认 32pt，包含 1x/2x 无损 PNG 表示，动画最多 24 帧。
+保留一轮动画时长，但长动画会减少显示姿势，不承诺保留原始帧率。
+没有合适美术的禁止、精确十字、复制和斜向缩放等角色保留系统原样。
+
+导入后仍无变化：
+- 确认选中的是新导入主题并点了 Apply，动画开关没有关闭。
+- 只在 Dock 生效：按管理器官方说明检查系统的自定义指针颜色。
+- 某些应用有自己的光标；请同时在 Finder 和 Safari 测试。
+- 安全权限只按管理器和 macOS 的实际提示处理，不盲目放行。
+- 问题反馈请附 macOS 版本、芯片、管理器版本、发生在哪一步及日志/截图。
+
+Windows 原版与全部原创美术：HappyCadogt（B 站 UID 406949928）
+作者：https://space.bilibili.com/406949928
+原作品：https://www.bilibili.com/video/BV1S2itBHEJH/
+Windows 下载请按原作者发布的说明获取。
+Linux 素材移植：Tseshongfeeshur / Ryan
+https://github.com/Tseshongfeeshur/cat-cursors
+本项目为 macOS 移植：Amory0709
+https://github.com/Amory0709/cat-cursors
+详细署名和权利说明见 CREDITS.md。
