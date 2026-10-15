@@ -10,7 +10,9 @@
 
 HappyCadogt「猫标」的 **macOS 移植**。Windows 原版和猫咪美术均由 [HappyCadogt](https://www.bilibili.com/video/BV1S2itBHEJH/) 创作。
 
-## 🐈 先领回两样东西
+> 🪟 **Windows 的小猫在这里：[原版下载（蓝奏云）](https://happycadogt.lanzoul.com/b01881lrdg)**，密码 **`1145`**。安装与更新请看[原作者视频及评论区](https://www.bilibili.com/video/BV1S2itBHEJH/)。下面是 Mac 的领养步骤 🐾
+
+## 🐈 Mac 先领回两样东西
 
 | 下载 | 选哪个？ |
 | --- | --- |
@@ -41,4 +43,4 @@ HappyCadogt「猫标」的 **macOS 移植**。Windows 原版和猫咪美术均�
 
 **Windows 原作与美术：[HappyCadogt](https://space.bilibili.com/406949928)** · **Linux 素材移植：[Tseshongfeeshur / Ryan](https://github.com/Tseshongfeeshur/cat-cursors)** · **macOS 移植：[Amory0709](https://github.com/Amory0709)**
 
-Windows 用户请按原作者说明下载。[完整署名](CREDITS.md) · [构建与校验](mac/README.md) · [问题反馈](https://github.com/Amory0709/cat-cursors/issues)
+[完整署名](CREDITS.md) · [构建与校验](mac/README.md) · [问题反馈](https://github.com/Amory0709/cat-cursors/issues)

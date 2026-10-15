@@ -10,7 +10,9 @@
 
 A **macOS port** of HappyCadogt's 猫标. The Windows original and cat artwork are by [HappyCadogt](https://www.bilibili.com/video/BV1S2itBHEJH/).
 
-## 🐈 Bring home two downloads
+> 🪟 **Windows cats live here: [original download (Lanzou)](https://happycadogt.lanzoul.com/b01881lrdg)** — password: **`1145`**. See the [creator's video and comments](https://www.bilibili.com/video/BV1S2itBHEJH/) for installation and updates. The steps below are for Mac 🐾
+
+## 🐈 Bring home two downloads for Mac
 
 | Download | Choose this file |
 | --- | --- |
@@ -41,4 +43,4 @@ Before upgrading, back up the old theme with **File → Export Cape**. Only over
 
 **Windows original/art: [HappyCadogt](https://space.bilibili.com/406949928)** · **Linux source port: [Tseshongfeeshur / Ryan](https://github.com/Tseshongfeeshur/cat-cursors)** · **macOS port: [Amory0709](https://github.com/Amory0709)**
 
-Windows users should follow the original creator's download instructions. [Full credits](CREDITS.md) · [Build and verify](mac/README.md) · [Report an issue](https://github.com/Amory0709/cat-cursors/issues)
+[Full credits](CREDITS.md) · [Build and verify](mac/README.md) · [Report an issue](https://github.com/Amory0709/cat-cursors/issues)
