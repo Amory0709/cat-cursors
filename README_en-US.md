@@ -12,6 +12,30 @@ A **macOS port** of HappyCadogt's 猫标. The Windows original and cat artwork a
 
 > 🪟 **Windows cats live here: [original download (Lanzou)](https://happycadogt.lanzoul.com/b01881lrdg)** — password: **`1145`**. See the [creator's video and comments](https://www.bilibili.com/video/BV1S2itBHEJH/) for installation and updates. The steps below are for Mac 🐾
 
+## 🐱 Two ways to bring a cat to Mac
+
+| | This theme + [Mousecape-swiftUI](https://github.com/sdmj76/Mousecape-swiftUI) | [neco0w0/CatCursor](https://github.com/neco0w0/CatCursor) |
+| --- | --- | --- |
+| Setup | Import the `.cape` theme and click Apply; illustrated below | [Download the standalone app](https://github.com/neco0w0/CatCursor/releases/latest), launch it and use its menu bar controls; no Mousecape needed |
+| How it works | Replaces system cursors through Mousecape | Hides the system cursor and draws a cat that follows the pointer |
+| Good for | Switching themes and editing cursor images and click hotspots | A dedicated cat app with size controls and a click-paw animation toggle |
+| Things to know | Up to 24 animation frames; some apps override system cursors | Its author notes slight tracking lag, possible system-cursor flashes when switching apps, and calibration when shape detection is inaccurate |
+
+The alternative's description comes from its README; **we have not tested it on this Mac**. Before switching approaches, restore the default system cursor or quit the previous cursor app.
+
+<details>
+<summary>🧰 What else can Mousecape do?</summary>
+
+Mousecape is a general **Mac cursor manager**. A `.cape` file contains a whole cursor theme; cats are just one option.
+
+- **Switch and back up themes:** import, export, preview and switch other `.cape` themes, or restore system defaults.
+- **Make your own theme:** edit static images, animations and the hotspot that determines where a click lands.
+- **Convert Windows cursors:** import `.cur` / `.ani` files as Mac themes. This repository has already done the conversion; just import `Cat-Cursor.cape`.
+
+See the [official Mousecape features](https://github.com/sdmj76/Mousecape-swiftUI#features) for more.
+
+</details>
+
 ## 🐈 Bring home two downloads for Mac
 
 | Download | Choose this file |
@@ -25,11 +49,27 @@ Manager 1.2.0 supports **macOS 14+, Apple Silicon and Intel**. Use **sdmj76/Mous
 
 ## 🐾 Three steps to a cat pointer
 
-1. **Open Mousecape**, choose **Import Cape**, and select the extracted `Cat-Cursor.cape`.
-2. Select **猫标 Cat Cursor** and click **Apply**. Check that the manager shows **Applied**.
-3. Open the included **`Cursor Test.html`** in Safari. Try links, text, grabbing, resizing and click alignment; check Finder too.
-
 Before upgrading, back up the old theme with **File → Export Cape**. Only overwrite a backed-up cat theme. No `.command` script, `sudo`, or disabled security settings needed.
+
+### ① Import this `.cape` file
+
+Open **Mousecape.app** and choose **File → Import Cape…** from the macOS menu bar, or click the **downward arrow into a tray** in the window's upper-right toolbar. In the extracted folder, select **`Cat-Cursor.cape`** and click **Open** (打开 in the screenshot).
+
+<img src="docs/screenshots/01-import-cape.jpg" width="760" alt="Import dialog: Cat-Cursor.cape selected, with the blue Open button at bottom right">
+
+### ② Select the cat, then click the blue checkmark
+
+Select **猫标 Cat Cursor** on the left. Click the **blue circular checkmark ✓** at the far upper right: this is **Apply**. Importing alone is not enough; check for **Applied** afterward.
+
+<img src="docs/screenshots/02-select-and-apply.jpg" width="760" alt="Mousecape: Cat Cursor selected on the left; the blue circular checkmark at the far upper right is Apply">
+
+### ③ Take your cat for a test
+
+Open the package's **`Cursor Test.html`** in Safari. Hover the blue **Link**, select words under **Text selection**, hold the mouse button in the **grab** area, and try horizontal and vertical resizing. Click the centre cross under **Click hotspot** to check alignment, then try Finder too.
+
+<img src="docs/screenshots/03-cursor-test.jpg" width="760" alt="Safari cursor test page with link, text selection, grab, resize and click-hotspot areas">
+
+<sub>Screenshots show Mousecape-swiftUI 1.2.0 in Chinese and Safari, and illustrate the controls only. Check animation, transparency and click alignment with the actual pointer on your screen. Precision crosshairs and forbidden-operation cursors stay native.</sub>
 
 > 🐱 On **2026-10-15**, the repaired theme was imported and applied on **macOS 26.6.2 / Apple Silicon / Mousecape-swiftUI 1.2.0**, and the user confirmed success. This is one-machine evidence, not universal compatibility. [Validation record](docs/VALIDATION.md)
 
