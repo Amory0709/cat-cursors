@@ -15,6 +15,8 @@ Import helpers are optional. `bash mac/install.sh` requires a previously built `
 
 Use the manager's reset function (File > Reset System Cursor / Cmd+R) to restore the default theme. No privileged installer or deletion of existing themes is needed.
 
+Export an existing theme in the manager before replacing it. In the extracted package root, verify all payload files with `shasum -a 256 -c SHA256SUMS`; stop if any entry fails. Use the complete release ZIP, not GitHub's source archive.
+
 ## Developer setup (repository root)
 
 Python 3.10+; Python 3.12 in CI.

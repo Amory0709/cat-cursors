@@ -1,69 +1,44 @@
-# Cat Cursor — macOS port
+<p align="center">
+  <img src="docs/previews/default.png" width="72" alt="A cat following the pointer">
+  <img src="docs/previews/pointer.png" width="72" alt="Cat link cursor">
+  <img src="docs/previews/pointer_2.png" width="72" alt="Cat grab cursor">
+</p>
 
-[中文](./README.md) | English
+<h1 align="center">Cat Cursor 🐾</h1>
+<p align="center">A little cat to keep your Mac pointer company.</p>
+<p align="center"><a href="README.md">中文</a> · English</p>
 
-**Original Windows project and all original artwork: HappyCadogt's 猫标 / Cat Cursor.** This repository is a macOS conversion, not the original Windows project.
+A **macOS port** of HappyCadogt's 猫标. The Windows original and cat artwork are by [HappyCadogt](https://www.bilibili.com/video/BV1S2itBHEJH/).
 
-| Platform / contribution | Author / project |
+## 🐈 Bring home two downloads
+
+| Download | Choose this file |
 | --- | --- |
-| **Windows original** | [HappyCadogt, Bilibili UID 406949928](https://space.bilibili.com/406949928) · [Original showcase](https://www.bilibili.com/video/BV1S2itBHEJH/). Follow the creator's published Windows download instructions. |
-| GNU/Linux source port | [Tseshongfeeshur / Ryan — cat-cursors](https://github.com/Tseshongfeeshur/cat-cursors), upstream for the PNG/config sources |
-| macOS conversion | [Amory0709](https://github.com/Amory0709/cat-cursors) |
+| [**Mousecape-swiftUI manager**](https://github.com/sdmj76/Mousecape-swiftUI/releases/latest) | Recommended official **1.2.0**: `Mousecape_swiftUI_v1.2.0.zip`. Unzip and move the app to Applications. |
+| [**Cat Cursor v1.3.0 theme**](https://github.com/Amory0709/cat-cursors/releases/tag/v1.3.0) | Under Assets, download and unzip **`Cat-Cursor-macOS-v1.3.0.zip`**. |
 
-See [CREDITS.md](./CREDITS.md). The original MIT text is retained; this port does not claim ownership or grant new permissions over the artist's work.
+Manager 1.2.0 supports **macOS 14+, Apple Silicon and Intel**. Use **sdmj76/Mousecape-swiftUI**; legacy Mousecape is a different project. Keep an existing working SwiftUI installation.
 
-## Get the repaired candidate
+`Source code (zip)` is **not an install package**. Old Cat Cursor v1.0.0–v1.2.0 packages have been withdrawn; use the repaired version above.
 
-Open a successful [Validate and package](https://github.com/Amory0709/cat-cursors/actions/workflows/validate.yml) run for the repair commit and download **Cat-Cursor-macOS-candidate** (GitHub may require sign-in). It contains a ZIP, DMG, and standalone cape.
+## 🐾 Three steps to a cat pointer
 
-**Existing Releases are not updated by a source commit.** A new `v*` tag and successful checks are required to publish a new [Release](https://github.com/Amory0709/cat-cursors/releases). Generated capes are no longer committed to `mac/dist/` as conflicting stale copies.
+1. **Open Mousecape**, choose **Import Cape**, and select the extracted `Cat-Cursor.cape`.
+2. Select **猫标 Cat Cursor** and click **Apply**. Check that the manager shows **Applied**.
+3. Open the included **`Cursor Test.html`** in Safari. Try links, text, grabbing, resizing and click alignment; check Finder too.
 
-## Install without scripts
+Before upgrading, back up the old theme with **File → Export Cape**. Only overwrite a backed-up cat theme. No `.command` script, `sudo`, or disabled security settings needed.
 
-1. Install [Mousecape-swiftUI](https://github.com/sdmj76/Mousecape-swiftUI/releases/latest). Its current README lists macOS 14+ and Intel/Apple Silicon; follow the requirements for the version you download.
-2. Open Mousecape and import or drag **Cat-Cursor.cape** into its window.
-3. Confirm import, select **猫标 Cat Cursor**, then click **Apply**.
-4. Open **Cursor Test.html** in Safari to check actual system cursor roles and click positioning.
+> 🐱 On **2026-10-15**, the repaired theme was imported and applied on **macOS 26.6.2 / Apple Silicon / Mousecape-swiftUI 1.2.0**, and the user confirmed success. This is one-machine evidence, not universal compatibility. [Validation record](docs/VALIDATION.md)
 
-When upgrading, optionally reset the current theme with **File > Reset System Cursor (Cmd+R)** before importing the new file. Resolve any overwrite prompt in the manager yourself; do not delete the whole theme library.
+## 🧶 A few cat-care tips
 
-The optional unsigned `.command` scripts only request import. They never directly call mousecloak, write the manager's private library, or claim that Apply succeeded. If macOS blocks a script, skip it and import the cape data manually. Do not disable Gatekeeper, recursively clear quarantine, or use sudo.
+- **No change?** Make sure you clicked Apply. If it only works in the Dock, see the manager's [troubleshooting guide](https://github.com/sdmj76/Mousecape-swiftUI#troubleshooting).
+- **Want your old pointer back?** Choose **File → Reset System Cursor** (⌘R), or import your exported theme and Apply it.
+- **Some cursors stay native?** Precision crosshairs and forbidden-operation cursors intentionally keep their meaning. Animations have at most 24 frames, so longer ones lose poses. Login reapplication is optional.
 
-## Repair details
+## ♡ The people behind the cats
 
-21 actual WindowServer identifiers use nine source animations. Incorrect NSCursor-style names have been replaced for pointing, grabbing, and horizontal/vertical resizing. Roles without suitable artwork remain native instead of disguising forbidden operations as waiting or replacing precision crosshairs with arrows.
+**Windows original/art: [HappyCadogt](https://space.bilibili.com/406949928)** · **Linux source port: [Tseshongfeeshur / Ryan](https://github.com/Tseshongfeeshur/cat-cursors)** · **macOS port: [Amory0709](https://github.com/Amory0709)**
 
-The default canvas is **32 logical points**, with lossless **1x/2x PNG** representations and validated pixel-based hotspots. Animation is sampled by elapsed time with exact loop duration and at most **24 frames**. Long sequences necessarily lose poses/frame rate; full Windows animation smoothness is not promised.
-
-The upstream decoder accepts PNG; HEIF is not required for import. PNG removes an encoding dependency and preserves transparency without lossy encoding.
-
-ZIP, DMG, CI, and Windows-host packaging share one manifest, including quick-start instructions, import helpers, a manual test page, credits, and SHA256SUMS. Checksums detect corruption, not publisher authenticity.
-
-![Representative source frames](./docs/previews/showcase.png)
-
-These previews are not proof of interactive macOS application testing.
-
-## Troubleshooting and restore
-
-Import is not Apply. Confirm the imported theme and animation settings in Mousecape. Use manual import for a renamed app, or set `MOUSECAPE_APP` to its path.
-
-The manager's [troubleshooting guide](https://github.com/sdmj76/Mousecape-swiftUI#troubleshooting) documents custom pointer-color interference and apps that override system cursors. Test in Finder and Safari. Grant permissions only in response to actual manager/macOS prompts.
-
-Restore with **Mousecape > File > Reset System Cursor (Cmd+R)**. Login reapplication is an optional manager setting.
-
-## Build and verify
-
-Python 3.10+; CI uses 3.12. End users importing a theme do not need Python.
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r mac/requirements.txt
-python -m unittest discover -s tests -v
-python scripts/build_release.py --version candidate
-# On macOS only, add --dmg.
-```
-
-On Windows, `scripts/build-release.ps1` builds a **macOS ZIP**, not a Windows installer. For the Windows original, use the creator links above.
-
-See [build parameters](./mac/README.md) and [validation evidence/limits](./docs/VALIDATION.md). Automated builds and AppKit decoding do not certify interactive Apply, every macOS version, sleep/wake, or all applications.
+Windows users should follow the original creator's download instructions. [Full credits](CREDITS.md) · [Build and verify](mac/README.md) · [Report an issue](https://github.com/Amory0709/cat-cursors/issues)

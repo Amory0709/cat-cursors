@@ -13,7 +13,19 @@ The baseline is commit `adb2b87a76dfb1186d5050a36dec1bbfd02b2c5f`.
 | Published package contents differ by build path | ZIP workflow and DMG omitted `请先阅读.txt` and manual helper while PowerShell included them | One manifest, ZIP permissions and checksum tests |
 | Documentation describes destructive troubleshooting and inconsistent installation paths | Previous quick-start deleted the theme library; duplicate committed capes differed | No broad deletions/security bypass; generated capes not source-controlled |
 
-These source findings do not establish which symptom occurred on a particular user's Mac. No local system access, interactive Apply, or full compatibility claim is implied.
+These source findings do not establish which symptom occurred on every Mac. The separate installation record below documents one actual installation, not universal compatibility.
+
+## Recorded installation — 2026-10-15
+
+- macOS 26.6.2 (25G83), Apple Silicon; Mousecape-swiftUI 1.2.0 (`com.sdmj76.Mousecape`).
+- Repair source: `7f83faeee41e56221af826a4879a54d6cd45759a`.
+- [Successful Actions run 38346108372](https://github.com/Amory0709/cat-cursors/actions/runs/38346108372), artifact `Cat-Cursor-macOS-candidate`; its outer digest and all packaged SHA256SUMS entries matched.
+- The ZIP filename uses PR test-merge commit `a20e53d1a68221357adaeb97d8c347d2cde73520`, whose parent is the repair source above.
+- The old cape was backed up. Import and Apply were performed through the manager UI, which displayed **Applied**. Login reapplication remained off.
+- Finder selection and Safari link navigation, text dragging and click events worked. The user subsequently confirmed the installation succeeded.
+- System cursor animation, transparency, every role/hotspot, display transitions, sleep/wake and restore were not independently verified end to end by the automation. Screenshots of previews or coordinate-driven clicks are not proof of those properties.
+
+The v1.3.0 release retains this theme converter and artwork; the follow-up changes simplify installation documentation. Old v1.0.0–v1.2.0 release downloads are withdrawn because they predate these repairs.
 
 ## Primary-source compatibility references
 
