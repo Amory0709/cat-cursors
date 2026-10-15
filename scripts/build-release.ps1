@@ -1,33 +1,7 @@
-param(
-    [string]$Version = "1.0.0"
-)
-
+param([string]$Version = "candidate")
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent (Split-Path -Parent $MyInvocation.MyCommand.Path)
-$Dist = Join-Path $Root "dist"
-$Stage = Join-Path $Dist "Cat-Cursor-macOS"
-$Zip = Join-Path $Dist "Cat-Cursor-macOS-v$Version.zip"
-
-if (Test-Path $Stage) { Remove-Item -Recurse -Force $Stage }
-New-Item -ItemType Directory -Path (Join-Path $Stage "lib") -Force | Out-Null
-
-Copy-Item (Join-Path $Root "mac\dist\Cat-Cursor.cape") (Join-Path $Stage "Cat-Cursor.cape") -ErrorAction Stop
-Copy-Item (Join-Path $Root "mac\package\Install Cat Cursor.command") $Stage
-$ManualImport = Get-ChildItem (Join-Path $Root "mac\package\*.command") |
-    Where-Object { $_.Name -ne "Install Cat Cursor.command" } |
-    Select-Object -First 1
-if (-not $ManualImport) { throw "Missing manual import .command in mac/package" }
-Copy-Item $ManualImport.FullName $Stage
-Copy-Item (Join-Path $Root "mac\lib\install_core.sh") (Join-Path $Stage "lib\install_core.sh")
-$QuickStart = Get-ChildItem (Join-Path $Root "mac\package\*.txt") |
-    Where-Object { $_.Name -ne "README.txt" } |
-    Select-Object -First 1
-if (-not $QuickStart) { throw "Missing quick-start txt in mac/package" }
-Copy-Item $QuickStart.FullName $Stage
-Copy-Item (Join-Path $Root "mac\package\README.txt") $Stage
-
-New-Item -ItemType Directory -Path $Dist -Force | Out-Null
-if (Test-Path $Zip) { Remove-Item -Force $Zip }
-Compress-Archive -Path $Stage -DestinationPath $Zip
-
-Write-Host "Created $Zip"
+# Builds a macOS package on Windows, NOT a Windows cursor installer.
+# Python's ZIP writer retains executable bits, unlike Compress-Archive.
+python (Join-Path $Root "scripts/build_release.py") --version $Version
+if ($LASTEXITCODE -ne 0) { throw "Package build failed with exit code $LASTEXITCODE" }

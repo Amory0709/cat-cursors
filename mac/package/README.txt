@@ -1,31 +1,27 @@
-猫标 Cat Cursor - macOS 安装包
-================================
+Cat Cursor for macOS - READ FIRST
 
-## 推荐安装（最简单）
+1. Install Mousecape-swiftUI from its official release page:
+   https://github.com/sdmj76/Mousecape-swiftUI/releases/latest
+2. Open Mousecape. Import or drag Cat-Cursor.cape into its window.
+3. Select 猫标 Cat Cursor, then click Apply. Import alone does not apply it.
+4. Open Cursor Test.html in Safari and check pointer, text, grab, and resize areas.
+5. To restore: Mousecape > File > Reset System Cursor (Cmd+R).
 
-1. 安装 Mousecape-swiftUI
-   https://github.com/sdmj76-team/Mousecape-swiftUI/releases
+The .command scripts are optional, unsigned import helpers, NOT automatic installers.
+When blocked by macOS, skip the script and import the .cape data file manually.
+Do not disable Gatekeeper, clear quarantine recursively, delete other themes, or run sudo.
 
-2. 双击本文件夹里的 Cat-Cursor.cape
+Defaults: 32 logical points, lossless 1x/2x PNGs, at most 24 animation frames.
+Full loop duration is preserved; long animations have fewer displayed poses.
+Forbidden/crosshair/copy/diagonal roles remain system-native where matching art is absent.
 
-3. 在 Mousecape 中点击 Apply
+SHA256SUMS detects accidental package corruption, not publisher authenticity.
+Keep the entire folder intact. The helper never claims that Apply has succeeded.
+For a renamed app, use Mousecape Import manually or set MOUSECAPE_APP to its path.
 
-4. 设置 > 通用 > 开启「开机自动应用」
-
-## 关于「无法验证恶意软件」提示
-
-Install Cat Cursor.command 是未签名的安装脚本。
-从 GitHub 下载时 macOS 可能拦截，这是正常现象，不是病毒。
-
-你可以：
-- 直接双击 Cat-Cursor.cape（推荐，不需要运行 .command）
-- 或在 .command 上 右键 > 打开 > 仍要打开
-- 或 系统设置 > 隐私与安全性 > 仍要打开
-
-## Apple Silicon
-
-请使用 Mousecape-swiftUI，不要用旧版 Mousecape。
-
-## 设计者
-
-HappyCadogt - https://space.bilibili.com/406949928
+Windows original/art: HappyCadogt (Bilibili UID 406949928)
+https://space.bilibili.com/406949928
+https://www.bilibili.com/video/BV1S2itBHEJH/
+Linux source port: https://github.com/Tseshongfeeshur/cat-cursors
+macOS port/issues: https://github.com/Amory0709/cat-cursors
+Full attribution: CREDITS.md

@@ -1,98 +1,44 @@
-# Cat Cursor Theme (macOS)
+<p align="center">
+  <img src="docs/previews/default.png" width="72" alt="A cat following the pointer">
+  <img src="docs/previews/pointer.png" width="72" alt="Cat link cursor">
+  <img src="docs/previews/pointer_2.png" width="72" alt="Cat grab cursor">
+</p>
 
-[中文](./README.md) | English
+<h1 align="center">Cat Cursor 🐾</h1>
+<p align="center">A little cat to keep your Mac pointer company.</p>
+<p align="center"><a href="README.md">中文</a> · English</p>
 
-Animated cat cursor theme by HappyCadogt for macOS. Requires a cursor manager (**[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** recommended).
+A **macOS port** of HappyCadogt's 猫标. The Windows original and cat artwork are by [HappyCadogt](https://www.bilibili.com/video/BV1S2itBHEJH/).
 
-## Apple Silicon Notice
+## 🐈 Bring home two downloads
 
-Legacy [Mousecape](https://github.com/alexzielenski/Mousecape) no longer works reliably on **Apple Silicon** and recent macOS versions.
-
-| Tool | Apple Silicon | Notes |
-| --- | --- | --- |
-| **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** | Yes | **Recommended**, universal binary, imports `.cape` |
-| **[Trace](https://github.com/User1334/Trace/releases)** | Yes | Alternative, supports `.cape` |
-| Legacy Mousecape | No | Avoid on Apple Silicon |
-
-## Download
-
-Get the latest installer from **[Releases](https://github.com/Amory0709/cat-cursors/releases/latest)**, then double-click **Install Cat Cursor.command**.
-
-Install **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)** first.
-
-## Preview
-
-![Cat cursor theme preview](./docs/previews/showcase.png)
-
-| Style | Description | Preview |
-| --- | --- | --- |
-| Default arrow | Everyday pointer with animated cat | ![default](./docs/previews/default.png) |
-| Text select | I-beam for typing | ![text](./docs/previews/text.png) |
-| Link / hand | Hovering links and clickable areas | ![pointer](./docs/previews/pointer.png) |
-| Grab | Dragging, closed hand | ![pointer_2](./docs/previews/pointer_2.png) |
-| Wait | Loading animation | ![wait](./docs/previews/wait.png) |
-| Progress | Busy but clickable | ![progress](./docs/previews/progress.png) |
-| Horizontal resize | Left-right resizing | ![size_hor](./docs/previews/size_hor.png) |
-| Vertical resize | Up-down resizing | ![size_ver](./docs/previews/size_ver.png) |
-
-> All cursors are animated. Previews show a single representative frame.
-
-## Designer
-
-| | |
+| Download | Choose this file |
 | --- | --- |
-| **Designer** | [**HappyCadogt**](https://space.bilibili.com/406949928) |
-| **Bilibili** | [@406949928](https://space.bilibili.com/406949928) |
-| **Showcase video** | [Loading cat cursor demo](https://www.bilibili.com/video/BV1S2itBHEJH/) |
+| [**Mousecape-swiftUI manager**](https://github.com/sdmj76/Mousecape-swiftUI/releases/latest) | Recommended official **1.2.0**: `Mousecape_swiftUI_v1.2.0.zip`. Unzip and move the app to Applications. |
+| [**Cat Cursor v1.3.0 theme**](https://github.com/Amory0709/cat-cursors/releases/tag/v1.3.0) | Under Assets, download and unzip **`Cat-Cursor-macOS-v1.3.0.zip`**. |
 
-**HappyCadogt** is the original designer of the Cat Cursor theme. This macOS port is based on their work. **All design rights belong to the original author.**
+Manager 1.2.0 supports **macOS 14+, Apple Silicon and Intel**. Use **sdmj76/Mousecape-swiftUI**; legacy Mousecape is a different project. Keep an existing working SwiftUI installation.
 
-## About
+`Source code (zip)` is **not an install package**. Old Cat Cursor v1.0.0–v1.2.0 packages have been withdrawn; use the repaired version above.
 
-- **Original design**: [Bilibili @HappyCadogt (UID: 406949928)](https://space.bilibili.com/406949928)
-- **macOS port**: [GitHub @Amory0709](https://github.com/Amory0709)
-- Hand-drawn cat style; **fully** animated cursors
-- Maps **28** macOS system cursor roles
+## 🐾 Three steps to a cat pointer
 
-## Supported Platforms
+1. **Open Mousecape**, choose **Import Cape**, and select the extracted `Cat-Cursor.cape`.
+2. Select **猫标 Cat Cursor** and click **Apply**. Check that the manager shows **Applied**.
+3. Open the included **`Cursor Test.html`** in Safari. Try links, text, grabbing, resizing and click alignment; check Finder too.
 
-| Platform | Notes |
-| --- | --- |
-| **macOS** | Installer in this repo; requires [Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases) or Trace |
-| **Windows** | Download the original from [Bilibili @HappyCadogt](https://space.bilibili.com/406949928) |
+Before upgrading, back up the old theme with **File → Export Cape**. Only overwrite a backed-up cat theme. No `.command` script, `sudo`, or disabled security settings needed.
 
----
+> 🐱 On **2026-10-15**, the repaired theme was imported and applied on **macOS 26.6.2 / Apple Silicon / Mousecape-swiftUI 1.2.0**, and the user confirmed success. This is one-machine evidence, not universal compatibility. [Validation record](docs/VALIDATION.md)
 
-## macOS Installation
+## 🧶 A few cat-care tips
 
-### Option 1: Release package (recommended)
+- **No change?** Make sure you clicked Apply. If it only works in the Dock, see the manager's [troubleshooting guide](https://github.com/sdmj76/Mousecape-swiftUI#troubleshooting).
+- **Want your old pointer back?** Choose **File → Reset System Cursor** (⌘R), or import your exported theme and Apply it.
+- **Some cursors stay native?** Precision crosshairs and forbidden-operation cursors intentionally keep their meaning. Animations have at most 24 frames, so longer ones lose poses. Login reapplication is optional.
 
-1. Install **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI/releases)**
-2. Download `Cat-Cursor-macOS.zip` or `.dmg` from [Releases](https://github.com/Amory0709/cat-cursors/releases/latest)
-3. Double-click **Install Cat Cursor.command**
-4. Enable **Launch at Login** in Mousecape Settings > General
+## ♡ The people behind the cats
 
-### Option 2: Clone and install
+**Windows original/art: [HappyCadogt](https://space.bilibili.com/406949928)** · **Linux source port: [Tseshongfeeshur / Ryan](https://github.com/Tseshongfeeshur/cat-cursors)** · **macOS port: [Amory0709](https://github.com/Amory0709)**
 
-```bash
-git clone https://github.com/Amory0709/cat-cursors.git
-cd cat-cursors/mac
-chmod +x install.sh
-./install.sh
-```
-
-See **[mac/README.md](./mac/README.md)** for details.
-
----
-
-## Acknowledgements
-
-- **Designer [HappyCadogt](https://space.bilibili.com/406949928)** ([Bilibili @406949928](https://space.bilibili.com/406949928))
-- **Amory0709**: macOS port and maintenance
-- **[Mousecape-swiftUI](https://github.com/sdmj76-team/Mousecape-swiftUI)**: recommended cursor manager for Apple Silicon
-
-## Links
-
-- Designer on Bilibili: https://space.bilibili.com/406949928
-- Showcase video: https://www.bilibili.com/video/BV1S2itBHEJH/
-- Latest release: https://github.com/Amory0709/cat-cursors/releases/latest
+Windows users should follow the original creator's download instructions. [Full credits](CREDITS.md) · [Build and verify](mac/README.md) · [Report an issue](https://github.com/Amory0709/cat-cursors/issues)

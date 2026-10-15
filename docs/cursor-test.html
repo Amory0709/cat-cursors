@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cat Cursor - manual system test</title>
+<style>
+body{font:17px/1.6 system-ui,sans-serif;max-width:960px;margin:40px auto;padding:0 24px}h1{line-height:1.15}section{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.sample{border:1px solid;border-radius:12px;padding:25px;text-align:center;min-height:65px;display:grid;place-items:center}textarea{font:inherit;width:100%;box-sizing:border-box;min-height:95px}#grab:active{cursor:grabbing!important}#pad{position:relative;height:180px;border:1px solid;border-radius:12px;cursor:default;touch-action:none}#target{position:absolute;left:50%;top:50%;width:20px;height:20px;transform:translate(-50%,-50%);border:1px solid;border-radius:50%;pointer-events:none}#target:before,#target:after{content:"";position:absolute;background:currentColor}#target:before{left:9px;top:-10px;width:1px;height:40px}#target:after{top:9px;left:-10px;height:1px;width:40px}#marker{position:absolute;width:6px;height:6px;border:2px solid;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none}output{display:block;min-height:2em}small{opacity:.75}
+</style>
+<h1>Cat Cursor: check the actual system pointer</h1>
+<p>Import the new cape and click <strong>Apply</strong> in Mousecape first. This page requests standard browser cursor roles; it does not draw a fake cursor or change your system.</p>
+<section>
+<div class="sample" style="cursor:default">Arrow / default</div>
+<a class="sample" href="#hotspot" style="cursor:pointer">Link / pointing hand</a>
+<div class="sample" id="grab" style="cursor:grab">Hold mouse button: grab → grabbing</div>
+<div class="sample" style="cursor:ew-resize">Horizontal resize ↔</div>
+<div class="sample" style="cursor:ns-resize">Vertical resize ↕</div>
+<div class="sample" style="cursor:wait">Wait</div>
+<div class="sample" style="cursor:progress">Busy but clickable</div>
+<div class="sample" style="cursor:crosshair">Crosshair: should stay precise and native</div>
+<div class="sample" style="cursor:not-allowed">Forbidden: should stay native</div>
+</section>
+<p><label for="text">Text selection: select part of this text</label></p>
+<textarea id="text">The cat should become the text cursor here. Select a word and check the click position.</textarea>
+<h2 id="hotspot">Click hotspot</h2>
+<p>Place the visible tip of the arrow on the centre cross and click. Repeat from different directions. A consistent offset suggests a hotspot issue; this is a visual manual check, not an automatic pass.</p>
+<div id="pad"><span id="target"></span><span id="marker" hidden></span></div>
+<output id="result" aria-live="polite">No click recorded.</output>
+<p><small>Browser/OS versions can map CSS roles differently. Also test window edges and Finder. Check Retina/external screens, sleep/wake, animation enabled/disabled, and restoration with Mousecape → File → Reset System Cursor (Cmd+R).</small></p>
+<script>
+const pad=document.getElementById('pad'),marker=document.getElementById('marker'),result=document.getElementById('result');
+pad.addEventListener('click',event=>{const r=pad.getBoundingClientRect(),x=event.clientX-r.left-pad.clientLeft,y=event.clientY-r.top-pad.clientTop;marker.hidden=false;marker.style.left=x+'px';marker.style.top=y+'px';result.textContent=`Click minus target centre: x ${(x-pad.clientWidth/2).toFixed(1)} px; y ${(y-pad.clientHeight/2).toFixed(1)} px.`;});
+</script></html>
